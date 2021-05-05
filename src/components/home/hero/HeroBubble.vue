@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div id="bubble" :style="{'--size': size+'px' }">
+    <div id="bubble" :size="size" :style="{'--size': size+'px' }">
 
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
+<script>
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {

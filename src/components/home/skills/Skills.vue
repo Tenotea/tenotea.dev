@@ -20,5 +20,7 @@ export default defineComponent({
     min-height: 100vh;
     background: lighten(#252734, 5);
     width: 100%;
+    position: relative;
+    z-index: 1;
   }
 </style>

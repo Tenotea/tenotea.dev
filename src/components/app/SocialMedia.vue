@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-icon :icon="github" />
+    <app-icon icon="github" />
   </div>
 </template>
 

@@ -17,7 +17,7 @@ body {
 }
 
 #main {
-  overflow-x: hidden;
+  overflow: hidden;
   min-height: 100vh;
   background-color: colors.$primaryDark;
   padding: 52px 0px;

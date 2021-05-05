@@ -1,6 +1,6 @@
 <template>
   <div class="bubbles-container" ref="bubblesContainer">
-    <hero-bubble v-for="n in 5" :key="n" ref="bubble" class="bubble" :size="(100 * n).toString()" />
+    <hero-bubble v-for="n in 3" :key="n" ref="bubble" class="bubble" :size="(100 * n).toString()" />
   </div>
 </template>
 
@@ -18,6 +18,7 @@ export default defineComponent({
     const bubblesContainer = <HTMLDivElement> this.$refs['bubblesContainer']
     tilt.init(bubblesContainer, {
       "full-page-listening": true,
+      perspective: 1500
     })
   }
 })
@@ -26,6 +27,8 @@ export default defineComponent({
 <style scoped lang="scss">
   .bubbles-container {
     position: absolute;
+    // background: #000;
+    // display: flex;
     width: 100%;
     height: 100%;
     top: 0;
@@ -36,6 +39,7 @@ export default defineComponent({
           $displaceY: random($limit: 100);
           $displaceX: random($limit: 100);
           transform: translate(#{$displaceY}+'%', #{$displaceX}+'%');
+          // transform: translate(#{(100 / 2)}+'%', 0px);
         }
       }
     }

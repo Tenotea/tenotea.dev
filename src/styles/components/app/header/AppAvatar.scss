@@ -5,23 +5,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  grid-gap: 8px;
-  gap: 8px;
+  grid-gap: 10px;
+  gap: 10px;
   max-width: min-content; 
   .app_avatar {
     background: url("/src/assets/images/avatar.png");
-    $avatarSize: 35px;
+    $avatarSize: 25px;
     width: $avatarSize;
     height: $avatarSize;
+    @media screen and #{colors.$breakpoint-sm} {
+      $avatarSizeMd: 35px;
+      width: $avatarSizeMd;
+      height: $avatarSizeMd;
+    }
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     margin: auto;
   }
   .app_name {
-    display: none;
-    font-weight: 600;
-    font-size: 1.1em;
+    // display: none;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    // font-family: ;
+    @media screen and #{colors.$breakpoint-sm} {
+      font-size: 1.1em;
+    }
+    font-size: 1em;
     color: #63ff2f;
   }
 }

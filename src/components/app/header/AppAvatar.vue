@@ -1,6 +1,6 @@
 <template>
   <div class="_avatar">
-    <div class="app_avatar" ref="avatar" refs="avatar"> </div>
+    <div class="app_avatar" ref="avatar"> </div>
     <p class="app_name"> Tenotea </p>
   </div>
 </template>
@@ -13,9 +13,7 @@ export default defineComponent({
   mounted () {
     const avatar = <HTMLDivElement> this.$refs.avatar
     gsap.fromTo(avatar, {
-      rotateY: 0,
-      // duration: 2,
-      // repeat: Infinity
+      rotateY: 0
     }, {
       rotateY: 360,
       duration: 10,

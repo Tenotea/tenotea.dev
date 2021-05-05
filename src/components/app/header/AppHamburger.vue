@@ -1,5 +1,5 @@
 <template>
-  <div class="ham">
+  <div class="ham" @click="openNavigation">
     <hr class="stroke one">
     <hr class="stroke two">
     <hr class="stroke three">
@@ -10,9 +10,12 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  setup() {
-    
-  },
+  emits: ['openNavigation'],
+  methods: {
+    openNavigation () {
+      this.$emit('openNavigation')
+    }
+  }
 })
 </script>
 

@@ -3,22 +3,24 @@
     <div class="app_header__blurred" />
     <div class="app_header__container">
       <app-avatar />
-      <app-hamburger />
+      <app-hamburger @openNavigation="openNavigation" />
     </div>
   </header>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import vaniallaTilt from 'vanilla-tilt'
 import AppAvatar from './header/AppAvatar.vue'
 import AppHamburger from './header/AppHamburger.vue'
 
 export default defineComponent({
   components: { AppAvatar, AppHamburger },
-  setup() {
-    
-  },
+  emits: ['openNavigation'],
+  methods: {
+    openNavigation () {
+      this.$emit('openNavigation')
+    }
+  }
 })
 </script>
 

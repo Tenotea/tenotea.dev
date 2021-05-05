@@ -10,6 +10,7 @@
   padding: 0;
   box-sizing: border-box;
   color: colors.$textGray;
+  text-decoration: none;
 }
 
 body {
@@ -21,4 +22,9 @@ body {
   min-height: 100vh;
   background-color: colors.$primaryDark;
   padding: 52px 0px;
+  transition: 300ms ease-out;
+  transition-property: filter;
+  &.blur_out {
+    filter: blur(23px) brightness(50%) opacity(100%);
+  }
 }

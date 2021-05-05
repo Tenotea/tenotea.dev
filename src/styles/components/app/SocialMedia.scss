@@ -1,0 +1,33 @@
+@use '../../variables.scss' as globals;
+
+.social_platforms {
+  position: fixed;
+  height: 100vh;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  &__icons {
+    background-color: rgba(white, $alpha: 15%);
+    padding: 0px 8px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative;
+    transition: all ease-out 300ms;
+    // transform: translateX(-100%);
+    a {
+      display: block;
+      margin: 14px 0px;
+      transition: ease-out 150ms;
+      transition-property: transform, position;
+      position: relative;
+      &:hover{
+        transform: scale(1.5);
+      }
+    }
+  }
+}

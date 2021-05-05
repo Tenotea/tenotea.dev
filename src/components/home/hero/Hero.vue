@@ -66,22 +66,22 @@ export default defineComponent({
       {
         id: 1,
         name: 'vue.js',
-        asset: '/src/assets/icons/vuejs.svg'
+        asset: `${import.meta.env.DEV ? '/src' : ''}/assets/icons/vuejs.svg`
       },
       {
         id: 2,
         name: 'react.js',
-        asset: '/src/assets/icons/reactjs.svg'
+        asset: `${import.meta.env.DEV ? '/src' : ''}/assets/icons/reactjs.svg`
       },
       {
         id: 0,
         name: 'nuxt.js',
-        asset: '/src/assets/icons/nuxtjs.svg'
+        asset: `${import.meta.env.DEV ? '/src' : ''}/assets/icons/nuxtjs.svg`
       },
       {
         id: 3,
         name: 'node.js',
-        asset: '/src/assets/icons/nodejs.svg'
+        asset: `${import.meta.env.DEV ? '/src' : ''}/assets/icons/nodejs.svg`
       }
     ] as StackIcon[]
   })

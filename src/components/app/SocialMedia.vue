@@ -13,7 +13,7 @@ import { defineComponent } from 'vue'
 import gsap, { Elastic } from 'gsap'
 import AppIcon from '../common/AppIcon.vue'
 
-interface SocialMedia {
+export interface SocialMedia {
   id: number,
   icon: string,
   name: string,

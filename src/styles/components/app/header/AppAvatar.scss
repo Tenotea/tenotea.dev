@@ -1,0 +1,27 @@
+@use '../../../variables.scss' as colors;
+
+._avatar {
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 8px;
+  gap: 8px;
+  max-width: min-content; 
+  .app_avatar {
+    background: url("/src/assets/images/avatar.png");
+    $avatarSize: 35px;
+    width: $avatarSize;
+    height: $avatarSize;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+  }
+  .app_name {
+    display: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #63ff2f;
+  }
+}

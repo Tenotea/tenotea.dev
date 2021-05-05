@@ -48,6 +48,10 @@
 import { defineComponent } from 'vue'
 import AppIcon from '../../common/AppIcon.vue'
 import HeroBubbles from './HeroBubbles.vue'
+import vuejsIcon from '../../../assets/icons/vuejs.svg'
+import reactjsIcon from '../../../assets/icons/reactjs.svg'
+import nuxtjsIcon from '../../../assets/icons/nuxtjs.svg'
+import nodejsIcon from '../../../assets/icons/nodejs.svg'
 
 interface StackIcon {
   id: number,
@@ -66,22 +70,22 @@ export default defineComponent({
       {
         id: 1,
         name: 'vue.js',
-        asset: `${import.meta.env.DEV ? '/src' : ''}/assets/icons/vuejs.svg`
+        asset: vuejsIcon
       },
       {
         id: 2,
         name: 'react.js',
-        asset: `${import.meta.env.DEV ? '/src' : ''}/assets/icons/reactjs.svg`
+        asset: reactjsIcon
       },
       {
         id: 0,
         name: 'nuxt.js',
-        asset: `${import.meta.env.DEV ? '/src' : ''}/assets/icons/nuxtjs.svg`
+        asset: nuxtjsIcon
       },
       {
         id: 3,
         name: 'node.js',
-        asset: `${import.meta.env.DEV ? '/src' : ''}/assets/icons/nodejs.svg`
+        asset: nodejsIcon
       }
     ] as StackIcon[]
   })

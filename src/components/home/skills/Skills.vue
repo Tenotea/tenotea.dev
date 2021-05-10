@@ -111,7 +111,7 @@
             >
               <g transform="translate(-491.579 -1509.952)">
                 <circle
-                  class="circle"
+                  class="a circle"
                   cx="15"
                   cy="15"
                   r="15"
@@ -215,7 +215,7 @@ export default defineComponent({
 <style scoped lang="scss">
 @import "../../../styles/components/home/skills.scss";
 
-.circle {
+.a {
   fill: rgba(246, 158, 91, 0.398);
   transform: translate(507px, 1526px);
 }

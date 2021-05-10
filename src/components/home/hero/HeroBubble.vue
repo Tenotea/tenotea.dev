@@ -14,13 +14,18 @@ export default defineComponent({
     size: {
       type: String,
       default: '23'
+    },
+    gradient: {
+      type: String,
+      default: 'linear-gradient(45deg, rgba(37, 39, 52, 0), rgba(51, 54, 70, 0.7))'
     }
   },
 
   computed: {
     cssVars ():any {
       return {
-      '--size': this.size + 'px'
+      '--size': this.size + 'px',
+      '--gradient': this.gradient
       }
     }
   }
@@ -33,7 +38,7 @@ export default defineComponent({
   #bubble {
     width: var(--size);
     height: var(--size);
-    background: linear-gradient(45deg, rgba(globals.$primaryDark, 0), rgba(globals.$secondaryDark, 0.7));
+    background: var(--gradient);
     clip-path: circle();
   }
 </style>

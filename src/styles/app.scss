@@ -11,17 +11,19 @@
   box-sizing: border-box;
   color: colors.$textGray;
   text-decoration: none;
+  scroll-behavior: smooth;
 }
 
 body {
   overflow-x: hidden;
+  // scroll-behavior: smooth;
 }
 
 #main {
   overflow: hidden;
   min-height: 100vh;
   background-color: colors.$primaryDark;
-  padding: 52px 0px;
+  padding-top: 52px;
   transition: 300ms ease-out;
   transition-property: filter;
   &.blur_out {

@@ -111,7 +111,7 @@
             >
               <g transform="translate(-491.579 -1509.952)">
                 <circle
-                  class="a"
+                  class="a circle"
                   cx="15"
                   cy="15"
                   r="15"

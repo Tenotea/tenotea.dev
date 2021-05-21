@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="background: linear-gradient(to left, #191b29ce 30%, #191b29ce 30%);">
     <div class="work_header">
       <common-section-title>
         Work Experience
@@ -79,6 +79,28 @@ export default defineComponent({
       meta: false,
       images: ['https://i.ibb.co/mG10p98/moviefetchers-01.png', 'https://i.ibb.co/XJMXb1v/moviefetchers-02.png'],
       position: 2
+    }, {
+      name: 'Techcolon',
+      link: 'techcolon.net',
+      url: 'https://techcolon.net',
+      theme: '#52ff88',
+      reversed: false,
+      description: 'My personal blog where i write web related contents just for the fun of it.',
+      stack: [ {
+        id: 1,
+        name: 'Node.js',
+        url: 'https://nodejs.org'
+      }, {
+        id: 2,
+        name: 'Firebase',
+        url: 'https://mongodb.com'
+      }, {
+        id: 3,
+        name: 'EJS & CSS'
+      }],
+      meta: false,
+      images: ['https://i.ibb.co/By1fxVm/techcolon-01.png', 'https://i.ibb.co/4ggBxWW/techcolon-02.png'],
+      position: 3
     }] as ProjectInformation[]
   })
 })

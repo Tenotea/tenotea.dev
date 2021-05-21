@@ -11,13 +11,13 @@
     left: 0;
     width: 100%;
     min-height: inherit;
-    background: linear-gradient(to left, #191b29ce 30%, #191b29ce 30%);
+    // background: linear-gradient(to left, #191b29ce 30%, #191b29ce 30%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     .project_name {
       font-size: 30em;
       opacity: 1;

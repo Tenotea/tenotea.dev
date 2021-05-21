@@ -60,7 +60,7 @@ export default defineComponent({
             x: !this.project.reversed ? '-80%' : '20%',
             opacity: 0
           }, {
-            x: '0',
+            x: '0%',
             duration: 1,
             opacity: 1,
             ease: Power1.easeInOut

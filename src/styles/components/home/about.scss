@@ -1,0 +1,54 @@
+@use '../../variables.scss' as globals;
+
+#about {
+  min-height: max-content;
+  position: relative;
+  z-index: 1;
+  background-color: globals.$secondaryDark;
+  background: linear-gradient(to right, rgba(212, 255, 242, 0.075) 50%, rgba(11, 20, 38, 0.111) 50%);
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 5em 10px 5em 0px;
+    .content_box {
+      margin-top: 3em;
+      background: none;
+      @media screen and #{globals.$breakpoint-sm} {
+        background: linear-gradient( to top, rgba(globals.$primaryDark, 0.5) 50%, rgba(globals.$primaryDark, 0.5) 50%), url('/src/assets/images/profile.multi.primary.png');
+        background-size: 40% 100%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        background-position: right top;
+      }
+      .article {
+        padding: 10px 40px;
+        .paragraph {
+          max-width: 70ch;
+          margin: 25px 0px;
+          line-height: 1.9em;
+          font-size: 1.1em;
+          font-weight: 300;
+          letter-spacing: 0.03em;
+          .highlight {
+            font-size: inherit;
+            color: inherit;
+            font-weight: 500;
+          }
+        }
+        .action {
+          background-color: globals.$text-highlight-blue;
+          border: none;
+          border-radius: 3px;
+          padding: 7px 25px;
+          cursor: pointer;
+          letter-spacing: 0.03em;
+          margin: 8px 0px 20px 0px;
+          .label {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+@use '../../../variables.scss' as globals;
+
+#projects {
+  position: relative;
+  z-index: 1;
+  min-height: 700px;
+  .layer_bg_one {
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: inherit;
+    background: linear-gradient(to left, #191b29ce 30%, #191b29ce 30%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .project_name {
+      font-size: 30em;
+      opacity: 1;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.035);
+      white-space: nowrap;
+    }
+  }
+  
+  .layer_bg_two {
+    @extend .layer_bg_one;
+    width: 70%;
+    max-width: 1600px;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    transition: 300ms ease;
+    transition-property: clip-path;
+    &.reverse {
+      left: unset;
+      right: 0;
+      &.scrolled_into_view {
+        animation: slideRTL 1s cubic-bezier(.12,.87,.19,.94) 0s 1 alternate forwards;
+      }
+    }
+    &.scrolled_into_view {
+      animation: slideLTR 1s cubic-bezier(.12,.87,.19,.94) 0s 1 alternate forwards;
+    }
+    @keyframes slideLTR {
+      from {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+        background: var(--theme);
+      } to {
+        clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+        background: globals.$primaryDark;
+      }
+    }
+    @keyframes slideRTL {
+      from {
+        clip-path: polygon(100% 0, 100% 0%, 100% 100%, 100% 100%);
+        background: var(--theme);
+      } to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        background: globals.$primaryDark;
+      }
+    }
+  }
+  .content_container {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0px 10px;
+    padding-top: 40px;
+    min-height: inherit;
+  }
+}

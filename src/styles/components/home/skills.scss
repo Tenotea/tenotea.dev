@@ -1,7 +1,7 @@
 @use '../../variables.scss' as globals; 
 
 .skills_container {
-  min-height: 100vh;
+  min-height: max-content;
   background: #333646;
   backdrop-filter: grayscale(1);
   width: 100%;

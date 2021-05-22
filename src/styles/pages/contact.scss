@@ -1,0 +1,131 @@
+@use '../variables.scss' as globals;
+
+main {
+  position: relative;
+  .floaters {
+    position: absolute;
+    z-index: 0;
+    &.one {
+      top: -24%;
+      left: 4%;
+      opacity: 0.32;
+      transform-origin: center;
+      transform: rotate(120deg) translate(0px, 0px);
+      animation: float 25s linear 0s infinite alternate forwards;
+      @keyframes float {
+        to {
+          transform: rotate(-120deg) translate(-100px, -100px);
+        }
+      }
+    }
+    &.two {
+      right: 9%;
+      bottom: 25%;
+      transform-origin: center;
+      transform: rotate(120deg) translate(0px, 0px);
+      animation: float 15s linear 0s infinite alternate forwards;
+      @keyframes float {
+        to {
+          transform: rotate(-120deg) translate(-100px, 100px);
+        }
+      }
+    }
+    &.three {
+      right: 45%;
+      bottom: -15%;
+      transform-origin: center;
+      transform: rotate(10deg) translate(0px, 0px);
+      animation: float 10s linear 0s infinite alternate forwards;
+      @keyframes float {
+        to {
+          transform: rotate(-10deg) translate(70px, -60px);
+        }
+      }
+    }
+  }
+}
+
+.content_box {
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  padding: 0px 0px 40px 0px;
+  @media screen and #{globals.$breakpoint-md} {
+    padding: 0px 60px;
+  }
+  &__section_grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 40px;
+    gap: 40px;
+    margin: auto;
+    width: 90%;
+    @media screen and #{globals.$breakpoint-sm} {
+      width: 500px;
+      // max-width: min-content;
+      @media screen and #{globals.$breakpoint-md} {
+        grid-template-columns: repeat(2, 1fr);
+        padding-top: 80px;
+        width: 100%;
+      }
+    }
+    min-height: 500px;
+    padding-top: 40px;
+    .left_pane {
+      padding: 0em 0em 0em 0em;
+      @media screen and #{globals.$breakpoint-md} {
+        padding: 4em 0em 0em 0em;
+      }
+      &__heading {
+        @media screen and #{globals.$breakpoint-md} {
+          font-size: 4em;
+        }
+        font-size: 3em;
+        color: rgb(255, 251, 230);
+        font-weight: 600;
+      }
+      &__contact_response {
+        display: none;
+        @media screen and #{globals.$breakpoint-md} {
+          display: block;
+        }
+        color: globals.$secondaryOrange;
+        font-size: 1.1em;
+        font-weight: 600;
+        margin: 0.3em 0em 1em 0em;
+      }
+      .action {
+        display: none;
+        @media screen and #{globals.$breakpoint-md} {
+          display: grid;
+        }
+        margin-top: 2.9em;
+        width: max-content;
+        grid-template-columns: repeat(2, 1fr);
+        $gap: 15px;
+        grid-gap: $gap;
+        gap: $gap;
+        &__filled {
+          background-color: globals.$text-highlight-blue;
+          padding: 0.5em 1.5em;
+          border-radius: 3px;
+          color: white;
+          border: none;
+        }
+        &__outlined {
+          background-color: rgba($color: #ffffff, $alpha: 0.1);
+          border-radius: 3px;
+          border: 2px solid rgba($color: #ffffff, $alpha: 0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center
+        }
+      }
+    }
+    .right_pane {
+      @extend .left_pane;
+      padding: 0;
+    }
+  }
+}

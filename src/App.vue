@@ -3,14 +3,14 @@
     <social-media> </social-media>
     <app-header @openNavigation="navigation = true"> </app-header>
     <router-view></router-view>
-    <app-navigation v-if="navigation" @exitNavigation="navigation = false"> </app-navigation>
+    <app-navigation-alt v-if="navigation" @exitNavigation="navigation = false" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import AppHeader from './components/app/AppHeader.vue'
-import AppNavigation from './components/app/AppNavigation.vue'
+import AppNavigationAlt from './components/app/AppNavigationAlt.vue'
 import SocialMedia from './components/app/SocialMedia.vue'
 
 export default defineComponent({
@@ -18,7 +18,7 @@ export default defineComponent({
   components: {
     AppHeader,
     SocialMedia,
-    AppNavigation
+    AppNavigationAlt
   },
   data: () => ({
     navigation: false

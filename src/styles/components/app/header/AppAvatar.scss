@@ -14,7 +14,7 @@
     width: $avatarSize;
     height: $avatarSize;
     @media screen and #{colors.$breakpoint-sm} {
-      $avatarSizeMd: 35px;
+      $avatarSizeMd: 25px;
       width: $avatarSizeMd;
       height: $avatarSizeMd;
     }
@@ -24,10 +24,8 @@
     margin: auto;
   }
   .app_name {
-    // display: none;
     font-weight: 400;
     letter-spacing: 0.02em;
-    // font-family: ;
     @media screen and #{colors.$breakpoint-sm} {
       font-size: 1.1em;
     }

@@ -26,7 +26,17 @@ body {
   padding-top: 52px;
   transition: 300ms ease-out;
   transition-property: filter;
+  position: relative;
   &.blur_out {
     filter: blur(23px) brightness(50%) opacity(100%);
+  }
+  .content_wrap {
+    padding-bottom: 200px;
+    @media screen and #{colors.$breakpoint-sm} {
+      padding-bottom: 170px;
+      @media screen and #{colors.$breakpoint-md} {
+        padding-bottom: 70px;
+      }
+    }
   }
 }

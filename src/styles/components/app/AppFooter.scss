@@ -1,0 +1,73 @@
+@use '../../variables.scss' as globals;
+$footer-bg: #181A24;
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  padding: 10px 0px;
+  background: $footer-bg;
+  // position: relative;
+  width: 100%;
+  .footer_container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(1, max-content);
+    @media screen and #{globals.$breakpoint-md} {
+      grid-template-columns: repeat(3, max-content);
+      justify-content: space-between;
+      padding: 0px 30px;
+    }
+    align-items: center;
+    justify-content: center;
+    $gap: 20px;
+    gap: $gap;
+    grid-gap: $gap;
+    &__logo {
+      margin: auto;
+    }
+    &__navigation {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      $gap: 10px;
+      gap: $gap;
+      grid-gap: $gap;
+      max-width: 300px;
+      @media screen and #{globals.$breakpoint-sm} {
+        max-width: max-content;
+      }
+      &--link {
+        font-size: 0.9em;
+        color: rgba($color: globals.$textGray, $alpha: 0.8);
+        letter-spacing: 0.03em;
+        font-weight: 400;
+        transition: 200ms ease-in-out color;
+        &:hover {
+          color: globals.$primaryOrange;
+        }
+      }
+    }
+    &__social_media {
+      margin: auto;
+      &--links {
+        display: grid;
+        grid-template-columns: repeat(4, max-content);
+        $gap: 15px;
+        gap: $gap;
+        grid-gap: $gap;
+        width: max-content;
+        margin: auto;
+        @media screen and #{globals.$breakpoint-md} {
+          margin: unset;
+        }
+      }
+      .copyright {
+        font-size: 0.8em;
+        color: globals.$primaryOrange
+      }
+    }
+  }
+}

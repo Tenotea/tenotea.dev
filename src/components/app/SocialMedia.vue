@@ -21,39 +21,41 @@ export interface SocialMedia {
   color: string
 }
 
+export const socialMediaPlatforms: SocialMedia[] = [
+  {
+    id: 1,
+    icon: 'github',
+    name: 'Github',
+    url: 'https://github.com/tenotea',
+    color: '#171515'
+  },
+  {
+    id: 2,
+    icon: 'twitter',
+    name: 'Twitter',
+    url: 'https://twitter.com/drtenotea',
+    color: '#1DA1F2'
+  },
+  {
+    id: 3,
+    icon: 'linkedin',
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/adelakun-emmanuel',
+    color: '#0072b1'
+  },
+  {
+    id: 4,
+    icon: 'whatsapp',
+    name: 'WhatsApp',
+    url: 'https://wa.me/%2B2347065362672',
+    color: '#25D366'
+  }
+] 
+
 export default defineComponent({
   components: { AppIcon },
   data: () => ({
-    platforms: [
-      {
-        id: 1,
-        icon: 'github',
-        name: 'Github',
-        url: 'https://github.com/tenotea',
-        color: '#171515'
-      },
-      {
-        id: 2,
-        icon: 'twitter',
-        name: 'Twitter',
-        url: 'https://twitter.com/drtenotea',
-        color: '#1DA1F2'
-      },
-      {
-        id: 3,
-        icon: 'linkedin',
-        name: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/adelakun-emmanuel',
-        color: '#0072b1'
-      },
-      {
-        id: 4,
-        icon: 'whatsapp',
-        name: 'WhatsApp',
-        url: 'https://wa.me/%2B2347065362672',
-        color: '#25D366'
-      }
-    ] as SocialMedia[]
+    platforms: socialMediaPlatforms
   }),
 
   mounted () {

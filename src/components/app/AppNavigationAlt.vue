@@ -1,6 +1,6 @@
 <template>
   <teleport to="body">
-    <section class="navigation_body">
+    <section :class="`navigation_body ${active ? 'open' : 'close'}`">
       <section class="curtains">
         <div v-for="n in 5" :key="n" :class="`curtain position_${n}`"></div>
       </section>
@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="navigation_options">
-          <router-link v-for="navLink in navLinks" class="navigation_options__option" :key="navLink.id"  :to="navLink.path">
+          <router-link v-for="navLink in navLinks" class="navigation_options__option" :key="navLink.id"  :to="navLink.path" @click="exitNavigation">
             <div class="navigation_options__option--icon">
             </div>
               <div class="navigation_options__option--name">
@@ -22,7 +22,7 @@
         </div>
         <div class="social_media">
           <a v-for="platform in platforms" ref="socialMediaIcon" :key="platform.id" target="_blank" :href="platform.url" rel="noopener noreferrer" :title="platform.name">
-          <app-icon class="icon" :icon="platform.icon" size="1.7" :hover="platform.color" />
+          <app-icon class="icon" :icon="platform.icon" size="1.9" :hover="platform.color" />
         </a>
         </div>
       </div>
@@ -45,6 +45,12 @@ interface NavLink {
 export default defineComponent({
   components: { AppIcon, AppAvatar, SocialMedia },
   emits: ['exitNavigation'],
+
+  props: {
+    active: {
+      type: Boolean
+    }
+  },
 
   data: () => ({
     navLinks: [

@@ -3,7 +3,7 @@
     <social-media> </social-media>
     <app-header @openNavigation="navigation = true"> </app-header>
     <router-view></router-view>
-    <app-navigation-alt v-if="navigation" @exitNavigation="navigation = false" />
+    <app-navigation-alt :active="navigation" @exitNavigation="navigation = false" />
   </div>
 </template>
 

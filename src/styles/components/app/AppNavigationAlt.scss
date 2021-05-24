@@ -9,11 +9,76 @@
   top: 0;
   left: 0;
   z-index: 200;
-  background-color: rgb(255, 172, 64);
+  background: #25273a;
   animation: switch_color 2000ms ease-out 0ms 1 alternate forwards;
   @keyframes switch_color {
     to {
-      background: globals.$primaryDark;
+      background: #0d0f1a;
+    }
+  }
+  &.open {
+    transform: translateY(0%);
+    transition: 400ms ease-out transform;
+    .navigation_options {
+      &__option {
+        transform: translateY(10px);
+        opacity: 0;
+        @for $i from 1 through 5 {
+          &:nth-child(#{$i}) {
+            animation: fade_in 400ms ease-out #{400 + ($i * 150)}ms 1 alternate forwards;
+          }
+        }
+        @keyframes fade_in {
+          to {
+            opacity: 1;
+            transform: translateY(0px);
+          }
+        }
+      }
+    }
+    .social_media {
+      a {
+        transition: 300ms ease-in-out;
+        transition-property: transform;
+        transform: translateY(0px) scale(1);
+        opacity: 0;
+        &:hover{
+          transform: translateY(-3px) scale(1.3);
+        }
+        @keyframes drop_icon {
+          to {
+            opacity: 1;
+          }
+        }
+        @for $i from 1 through 4 {
+          &:nth-child(#{$i}) {
+            animation: drop_icon 400ms ease-out #{1100 + ($i * 150)}ms 1 alternate forwards;
+          }
+        }
+      }
+    }
+  }
+  &.close {
+    transform: translateY(-100%);
+    transition: 600ms ease-out transform;
+    transition-delay: 1.4s;
+    .curtains {
+      .curtain {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 1;
+        @keyframes shrink_width { 
+          to {
+            clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+            opacity: 0;
+          }
+        }
+        @for $i from 1 through 5 {
+          &:nth-child(#{$i}) {
+            background: darken(#191b29, $i * 1.5);
+            animation: shrink_width 400ms ease-out #{400 + ($i * 150)}ms 1 alternate forwards;
+          }
+        }
+      }
     }
   }
   .curtains {
@@ -27,17 +92,18 @@
     grid-template-columns: repeat(5, 1fr);
     .curtain {
       min-height: 100%;
-      width: 0%;
+      width: 100%;
+      clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
       opacity: 0;
       @keyframes expand_width {
-        to {
-          width: 100%;
+        to { 
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
           opacity: 1;
         }
       }
       @for $i from 1 through 5 {
         &:nth-child(#{$i}) {
-          background: darken(globals.$secondaryDark, $i * 2);
+          background: darken(#191b29, $i * 1.5);
           animation: expand_width 400ms ease-out #{400 + ($i * 150)}ms 1 alternate forwards;
         }
       }
@@ -80,31 +146,33 @@
       gap: $gap;
       padding: 14px;
       cursor: pointer;
-      opacity: 0;
+      opacity: 1;
       transition: ease-out 200ms;
-      transition-property: background-color, backdrop-filter;
+      transition-property: background-color;
+      background-color: transparent;
       border-radius: 5px;
+      transform: translateY(0px);
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          animation: fade_out 400ms ease-out #{400 + ($i * 150)}ms 1 alternate forwards;
+        }
+      }
+      @keyframes fade_out {
+        to {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+      }
+      &.router-link-active, &.router-link-exact-active,
       &:hover {
-        backdrop-filter: blur(10px);
-        background-color: rgba($color: globals.$secondaryDark, $alpha: 0.06);
+        background-color: rgba($color: globals.$secondaryOrange, $alpha: 0.06);
         .navigation_options__option--name {
           transform: scale(1.1);
+          color: globals.$secondaryOrange;
         }
       }
       @media screen and #{globals.$breakpoint-sm} {
         padding: 24px;
-      }
-      transform: translateY(10px);
-      @for $i from 1 through 5 {
-        &:nth-child(#{$i}) {
-          animation: fade_in 400ms ease-out #{400 + ($i * 150)}ms 1 alternate forwards;
-        }
-      }
-      @keyframes fade_in {
-        to {
-          opacity: 1;
-          transform: translateY(0px);
-        }
       }
       &--icon {
         background-image: url('/src/assets/images/avatar.png');
@@ -122,16 +190,13 @@
         letter-spacing: 0.05em;
         font-weight: 500;
         font-size: 1em;
-        // transform: scale(1);
-        transition: ease-out 100ms;
-        transition-property: transform;
+        transform: scale(0.9);
+        transition: cubic-bezier(0,.97,.67,-0.85) 800ms;
+        transition-property: transform, color;
         transform-origin: bottom left;
-        &:hover {
-          transform: scale(1.1);
-        }
         @media screen and #{globals.$breakpoint-sm} {
           font-size: 1.5em;
-          font-weight: 400;
+          font-weight: 600;
         }
       }
     }
@@ -145,24 +210,19 @@
     align-items: center;
     justify-content: center;
     padding: 30px 0px 80px 0px;
-    $gap: 25px;
+    $gap: 30px;
     grid-gap: $gap;
     gap: $gap;
     a {
-      transform: translateY(-20px) scale(1);
-      opacity: 0;
-      @keyframes drop_icon {
+      opacity: 1;
+      @keyframes collapse_icon {
         to {
-          transform: translateY(0px) scale(1.2);
-          opacity: 1;
+          opacity: 0;
         }
       }
       @for $i from 1 through 4 {
         &:nth-child(#{$i}) {
-          animation: drop_icon 400ms ease-out #{1100 + ($i * 150)}ms 1 alternate forwards;
-          &:hover{
-            transform: translateY(0px) scale(1.3);
-          }
+          animation: collapse_icon 400ms ease-out #{500 + ($i * 150)}ms 1 alternate forwards;
         }
       }
     }

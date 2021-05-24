@@ -1,9 +1,9 @@
 <template>
   <div id="main" :class="{ blur_out: navigation }">
     <social-media> </social-media>
-    <app-header @openNavigation="navigation = true"> </app-header>
+    <app-header @openNavigation="handleMenu"> </app-header>
     <router-view class="content_wrap"></router-view>
-    <app-navigation-alt :active="navigation" @exitNavigation="navigation = false" />
+    <app-navigation-alt v-if="hasPageLoaded" :active="navigation" @exitNavigation="navigation = false" />
     <app-footer />
   </div>
 </template>
@@ -24,8 +24,16 @@ export default defineComponent({
     AppFooter
   },
   data: () => ({
-    navigation: false
-  })
+    navigation: false,
+    hasPageLoaded: false
+  }),
+
+  methods: {
+    handleMenu () {
+      this.navigation = true
+      this.hasPageLoaded = true
+    }
+  }
 })
 </script>
 

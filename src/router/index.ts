@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../pages/Home.vue'
+import Home from '@/pages/Home.vue'
 
 const routes:RouteRecordRaw[] = [
   {
@@ -11,7 +11,19 @@ const routes:RouteRecordRaw[] = [
     name: 'Contact',
     path: '/contact',
     alias: '/get-in-touch',
-    component: () => import('../pages/Contact.vue')
+    component: () => import('@/pages/Contact.vue')
+  },
+  {
+    name: 'About Me',
+    path: '/me',
+    alias: '/about',
+    component: () => import('@/pages/About.vue')
+  },
+  {
+    name: 'Projects',
+    path: '/projects',
+    alias: '/works',
+    component: () => import('@/pages/About.vue')
   }
 ]
 

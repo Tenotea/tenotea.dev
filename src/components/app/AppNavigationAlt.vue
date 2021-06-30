@@ -42,6 +42,29 @@ interface NavLink {
   path: string
 }
 
+export const navigationLinks: NavLink[] = [
+  {
+    id: 1,
+    name: 'Home',
+    path: '/'
+  },
+  {
+    id: 2,
+    name: 'Projects',
+    path: '/projects'
+  },
+  {
+    id: 3,
+    name: 'About Me',
+    path: '/me'
+  },
+  {
+    id: 4,
+    name: 'Get in touch',
+    path: '/get-in-touch'
+  }
+]
+
 export default defineComponent({
   components: { AppIcon, AppAvatar, SocialMedia },
   emits: ['exitNavigation'],
@@ -53,33 +76,7 @@ export default defineComponent({
   },
 
   data: () => ({
-    navLinks: [
-      {
-        id: 1,
-        name: 'Home',
-        path: '/'
-      },
-      {
-        id: 2,
-        name: 'Experience',
-        path: '/experience'
-      },
-      {
-        id: 3,
-        name: 'About Me',
-        path: '/me'
-      },
-      {
-        id: 4,
-        name: 'Projects',
-        path: '/projects'
-      },
-      {
-        id: 5,
-        name: 'Get in touch',
-        path: '/get-in-touch'
-      }
-    ] as NavLink[],
+    navLinks: navigationLinks,
 
     platforms: [
       {

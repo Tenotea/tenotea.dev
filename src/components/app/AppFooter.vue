@@ -28,7 +28,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import AppIcon from '../common/AppIcon.vue'
-import { navigationLinks } from './AppNavigation.vue'
+import { navigationLinks } from './AppNavigationAlt.vue'
 import AppAvatar from './header/AppAvatar.vue'
 import { socialMediaPlatforms } from './SocialMedia.vue'
 

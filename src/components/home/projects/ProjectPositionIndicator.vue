@@ -25,7 +25,7 @@ export default defineComponent({
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           gsap.fromTo(indicatorNumber, {
-            x: this.reverse ? '100%' : '-120%',
+            x: this.reverse ? '100%' : '-100%',
             opacity: 0.3
           }, {
             x: '0%',
@@ -34,6 +34,8 @@ export default defineComponent({
           })
         }
       })
+    }, {
+      threshold: 0
     }).observe(indicatorNumber)
   }
 })

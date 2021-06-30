@@ -35,7 +35,7 @@ export default defineComponent({
       new IntersectionObserver((entries) => {
         entries.forEach(({isIntersecting}) => {
           gsap.fromTo(titleElement, {
-            x: '-50%',
+            x: '-20%',
             opacity: 0
           }, {
             x: '0%',

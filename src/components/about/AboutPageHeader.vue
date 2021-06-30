@@ -52,13 +52,14 @@ export default defineComponent({
   }
   &__caption {
     color: globals.$primaryGreen;
+    font-weight: 500;
   }
   &__social-media-links {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     max-width: min-content;
-    gap: 15px;
-    grid-gap: 15px;
+    gap: 18px;
+    grid-gap: 18px;
     margin: auto;
     margin-top: 20px;
   }

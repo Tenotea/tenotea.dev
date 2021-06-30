@@ -14,6 +14,18 @@
         I am a web engineer who has learnt web development for the past two years by making a lot of mistakes and also receiving quite a number of critics and encouragement. I have participated in Hackathons and have helped two Real businesses establish their online presence.
       </about-page-paragraph>
     </div>
+    <div class="about-page-design-elements">
+      <hero-bubble
+        size="580"
+        gradient="linear-gradient(#ff703a21 20%, #7d078200)"
+        class="giant-bubble"
+      />
+      <hero-bubble
+        size="380"
+        gradient="linear-gradient(45deg, rgb(45 91 117), rgb(154 69 35 / 25%))"
+        class="small-bubble"
+      />
+    </div>
   </main>
 </template>
 
@@ -23,9 +35,10 @@ import AboutPageHeader from '../components/about/AboutPageHeader.vue'
 import AboutTitleStyled from '../components/about/AboutTitleStyled.vue'
 import AboutPageParagraph from '../components/about/AboutPageParagraph.vue';
 import AboutPageImage from '../components/about/AboutPageImage.vue';
+import HeroBubble from '../components/home/hero/HeroBubble.vue';
 
 export default defineComponent({
-  components: { AboutTitleStyled, AboutPageHeader, AboutPageParagraph, AboutPageImage },
+  components: { AboutTitleStyled, AboutPageHeader, AboutPageParagraph, AboutPageImage, HeroBubble },
   setup() {
     
   },

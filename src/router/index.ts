@@ -23,7 +23,7 @@ const routes:RouteRecordRaw[] = [
     name: 'Projects',
     path: '/projects',
     alias: '/works',
-    component: () => import('@/pages/About.vue')
+    component: () => import('@/pages/Projects.vue')
   }
 ]
 

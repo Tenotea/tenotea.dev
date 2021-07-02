@@ -30,12 +30,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@use '@/styles/variables.scss' as globals;
   .projects-container {
     max-width: 1300px;
     margin: auto;
     padding: 60px 40px;
     .projects-body {
-      margin-top: 70px;
+      @media screen and #{globals.$breakpoint-sm} {
+        margin-top: 70px
+      }
     }
   }
 </style>

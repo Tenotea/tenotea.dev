@@ -29,9 +29,20 @@ export default defineComponent({
 <style lang="scss" scoped>
 @use '@/styles/variables.scss' as globals;
 .project-header {
+  @media screen and #{globals.$breakpoint-md} {
+    width: max-content;
+  }
   &--title {
-    font-size: 2.7em;
-    max-width: 450px;
+    font-size: 2em;
+    max-width: 600px;
+    // width: 100%;
+    @media screen and #{globals.$breakpoint-sm} {
+      font-size: 2.5em;
+      @media screen and #{globals.$breakpoint-md} {
+        max-width: 450px;
+        font-size: 2.7em;
+      }
+    }
   }
   &--link {
     background: linear-gradient(45deg, globals.$secondaryOrange 30%, globals.$text-highlight-blue 70%);

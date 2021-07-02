@@ -22,11 +22,13 @@ export default defineComponent({
 <style lang="scss" scoped>
 @use '@/styles/variables.scss' as globals;
 .description-block {
+  max-width: 800px;
   .block-title {
     font-weight: 500;
     font-size: 0.8em;
     text-transform: uppercase;
     letter-spacing: 0.2em;
+    margin-bottom: 8px;
   }
   .block-content {
     color: globals.$desaturated-yellow;

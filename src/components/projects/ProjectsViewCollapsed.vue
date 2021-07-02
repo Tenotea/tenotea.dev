@@ -25,8 +25,20 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@use '@/styles/variables.scss' as globals;
 .project-data {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  margin: auto;
+  // grid-template-columns: repeat(2, auto);
+  .project-data-column-two {
+    margin-top: 70px;
+  }
+  @media screen and #{globals.$breakpoint-md} {
+    // max-width: max-content;
+    grid-template-columns: repeat(2, auto);
+    .project-data-column-two {
+      margin-top: 0px;
+    }
+  }
 }
 </style>

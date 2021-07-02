@@ -27,10 +27,13 @@ export default defineComponent({
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: top left;
     background-image: url('https://i.ibb.co/mG10p98/moviefetchers-01.png');
     max-width: 800px;
-    height: 400px;
+    height: 300px;
+    @media screen and #{globals.$breakpoint-sm} {
+      height: 400px;
+    }
     width: 100%;
     z-index: 1;
     border-radius: inherit;
@@ -38,11 +41,13 @@ export default defineComponent({
   &::after {
     content: '';
     position: absolute;
-    $offset: -30px;
+    $offset: -20px;
     top: $offset;
     left: $offset;
     background-color: globals.$secondaryDark;
+    opacity: 0.4;
     width: 100%;
+    max-width: 800px;
     height: 100%;
     z-index: 0;
     border-radius: inherit;
@@ -51,7 +56,7 @@ export default defineComponent({
   }
   &:hover {
     &::after {
-      $offset: -40px;
+      $offset: -30px;
       top: $offset;
       left: $offset;
     }

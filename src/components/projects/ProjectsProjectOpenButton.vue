@@ -41,8 +41,6 @@ export default defineComponent({
     transition: 100ms ease-in;
     font-size: 0.9em;
     background-color: globals.$text-highlight-blue;
-    &:hover {
-    }
   }
 }
 </style>

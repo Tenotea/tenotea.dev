@@ -15,6 +15,7 @@
       <projects-project-controls icon="chevron-right">
         next
       </projects-project-controls>
+      <projects-bottom-navigation />
   </main>
 </template>
 
@@ -24,9 +25,10 @@ import ProjectsNavigation from '../components/projects/ProjectsNavigation.vue'
 import ProjectsViewCollapsed from '../components/projects/ProjectsViewCollapsed.vue';
 import ProjectsProjectControls from '../components/projects/ProjectsProjectControls.vue';
 import ProjectsPositionTracker from '../components/projects/ProjectsPositionTracker.vue';
+import ProjectsBottomNavigation from '../components/projects/ProjectsBottomNavigation.vue';
 
 export default defineComponent({
-  components: { ProjectsNavigation, ProjectsViewCollapsed, ProjectsProjectControls, ProjectsPositionTracker },
+  components: { ProjectsNavigation, ProjectsViewCollapsed, ProjectsProjectControls, ProjectsPositionTracker, ProjectsBottomNavigation },
   setup() {
     
   },
@@ -35,10 +37,17 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @use '@/styles/variables.scss' as globals;
+  #projects {
+    margin-bottom: 0px;
+    @media screen and #{globals.$breakpoint-sm} {
+      margin-bottom: 0px;
+    }
+  }
   .projects-container {
     max-width: 1300px;
     margin: auto;
     padding: 60px 40px;
+    
     .projects-body {
       @media screen and #{globals.$breakpoint-sm} {
         margin-top: 70px

@@ -10,25 +10,25 @@ export const projectsRoutes:PortfolioProjectsRoute[] = [
   {
     id: 1,
     name: 'All',
-    icon: '',
+    icon: 'briefcase',
     theme: '#FF903B'
   },
   {
     id: 2,
     name: 'Design',
-    icon: '',
+    icon: 'palette',
     theme: '#4778ff'
   },
   {
     id: 3,
     name: 'Frontend',
-    icon: '',
+    icon: 'desktop-mac',
     theme: '#FF246F'
   },
   {
     id: 4,
     name: 'Backend',
-    icon: '',
+    icon: 'server',
     theme: '#24B262'
   }
 ]

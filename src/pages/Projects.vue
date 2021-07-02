@@ -9,6 +9,9 @@
           <projects-view-collapsed />
         </div>
       </div>
+      <div class="project-position-tracker">
+        <projects-position-tracker />
+      </div>
       <projects-project-controls icon="chevron-right">
         next
       </projects-project-controls>
@@ -20,9 +23,10 @@ import { defineComponent } from 'vue'
 import ProjectsNavigation from '../components/projects/ProjectsNavigation.vue'
 import ProjectsViewCollapsed from '../components/projects/ProjectsViewCollapsed.vue';
 import ProjectsProjectControls from '../components/projects/ProjectsProjectControls.vue';
+import ProjectsPositionTracker from '../components/projects/ProjectsPositionTracker.vue';
 
 export default defineComponent({
-  components: { ProjectsNavigation, ProjectsViewCollapsed, ProjectsProjectControls },
+  components: { ProjectsNavigation, ProjectsViewCollapsed, ProjectsProjectControls, ProjectsPositionTracker },
   setup() {
     
   },
@@ -40,5 +44,10 @@ export default defineComponent({
         margin-top: 70px
       }
     }
+  }
+  .project-position-tracker {
+    margin: auto;
+    max-width: max-content;
+    margin-bottom: 40px;
   }
 </style>

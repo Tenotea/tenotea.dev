@@ -29,12 +29,10 @@ export default defineComponent({
 .project-data {
   display: grid;
   margin: auto;
-  // grid-template-columns: repeat(2, auto);
   .project-data-column-two {
     margin-top: 70px;
   }
   @media screen and #{globals.$breakpoint-md} {
-    // max-width: max-content;
     grid-template-columns: repeat(2, auto);
     .project-data-column-two {
       margin-top: 0px;

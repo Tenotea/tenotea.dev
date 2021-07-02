@@ -30,7 +30,7 @@ export default defineComponent({
   }
   .website-action-button {
     border-radius: 4px;
-    // background-color: globals.$buttonPink; 
+    border: none;
     padding: 4px 20px;
     font-weight: 500;
     display: flex;

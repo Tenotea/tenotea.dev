@@ -47,6 +47,8 @@ export default defineComponent({
   &--link {
     background: linear-gradient(45deg, globals.$secondaryOrange 30%, globals.$text-highlight-blue 70%);
     background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
     color: transparent;
     background-size: 100% 100%;
     transition: 900ms ease-out background-size;

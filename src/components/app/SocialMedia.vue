@@ -1,5 +1,5 @@
 <template>
-  <div class="social_platforms">
+  <div class="social_platforms" :class="{ reposition: reposition }">
     <div class="social_platforms__icons" ref="socialMedia">
       <a v-for="platform in platforms" ref="socialMediaIcon" :key="platform.id" target="_blank" :href="platform.url" rel="noopener noreferrer" :title="platform.name">
         <app-icon class="icon" :icon="platform.icon" size="1.5" :hover="platform.color" />
@@ -57,6 +57,12 @@ export default defineComponent({
   data: () => ({
     platforms: socialMediaPlatforms
   }),
+
+  computed: {
+    reposition (): boolean {
+      return this.$route.path.split('/').includes('projects')
+    }
+  },
 
   mounted () {
     const mediaIcons = <HTMLDivElement> this.$refs.socialMedia

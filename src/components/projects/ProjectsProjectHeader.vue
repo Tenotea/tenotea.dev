@@ -31,7 +31,7 @@ export default defineComponent({
 .project-header {
   &--title {
     font-size: 2.7em;
-    max-width: 600px;
+    max-width: 450px;
   }
   &--link {
     background: linear-gradient(45deg, globals.$secondaryOrange 30%, globals.$text-highlight-blue 70%);

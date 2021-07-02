@@ -22,14 +22,16 @@ export default defineComponent({
   position: relative;
   width: max-content;
   border-radius: 10px;
+  width: 100%;
   .image-item {
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-image: url('https://i.ibb.co/mG10p98/moviefetchers-01.png');
-    min-height: 450px;
-    min-width: 800px;
+    max-width: 800px;
+    height: 400px;
+    width: 100%;
     z-index: 1;
     border-radius: inherit;
   }

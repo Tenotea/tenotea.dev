@@ -1,11 +1,17 @@
 <template>
   <main id="projects">
-    <div class="projects-container">
-      <projects-navigation />
-      <div class="projects-body">
-        <projects-view-collapsed />
+      <projects-project-controls icon="chevron-left" reverse>
+        Prev
+      </projects-project-controls>
+      <div class="projects-container">
+        <projects-navigation />
+        <div class="projects-body">
+          <projects-view-collapsed />
+        </div>
       </div>
-    </div>
+      <projects-project-controls icon="chevron-right">
+        next
+      </projects-project-controls>
   </main>
 </template>
 
@@ -13,9 +19,10 @@
 import { defineComponent } from 'vue'
 import ProjectsNavigation from '../components/projects/ProjectsNavigation.vue'
 import ProjectsViewCollapsed from '../components/projects/ProjectsViewCollapsed.vue';
+import ProjectsProjectControls from '../components/projects/ProjectsProjectControls.vue';
 
 export default defineComponent({
-  components: { ProjectsNavigation, ProjectsViewCollapsed },
+  components: { ProjectsNavigation, ProjectsViewCollapsed, ProjectsProjectControls },
   setup() {
     
   },

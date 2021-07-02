@@ -28,7 +28,7 @@ export default defineComponent({
     margin: auto;
     padding: 60px 40px;
     .projects-body {
-      margin-top: 30px;
+      margin-top: 70px;
     }
   }
 </style>

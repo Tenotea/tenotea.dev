@@ -9,15 +9,17 @@
         https://moviefetchers.cf
       </span>
     </a>
+    <projects-project-open-button />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import AppIcon from '../common/AppIcon.vue'
+import ProjectsProjectOpenButton from './ProjectsProjectOpenButton.vue'
 
 export default defineComponent({
-  components: { AppIcon },
+  components: { AppIcon, ProjectsProjectOpenButton },
   setup() {
     
   },

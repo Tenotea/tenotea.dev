@@ -46,6 +46,7 @@ export default defineComponent({
   }
   // background: rgba(255, 255, 255, 0.179);
   .placeholder_element {
+    padding: 10px 20px;
     margin: auto;
     position: relative;
     cursor: pointer;
@@ -55,13 +56,12 @@ export default defineComponent({
         &__icon {
           transform: translateX(3px);
         }
-        // gap: 4px;
       }
     }
     &::before {
       position: absolute;
-      top: -30px;
-      left: 25px;
+      top: -20px;
+      left: 45px;
       width: 70px;
       height: 70px;
       content: '';
@@ -70,8 +70,16 @@ export default defineComponent({
     }
     &.reverse {
       &::before {
-        top: -30px;
-        left: -25px;
+        top: -20px;
+        left: -15px;
+      }
+      &:hover {
+        .control--name {
+          transform: translateX(3px);
+          &__icon {
+            transform: translateX(-3px);
+          }
+        }
       }
     }
   }
@@ -89,7 +97,7 @@ export default defineComponent({
     margin-right: 25px;
     &.reverse {
       flex-direction: row-reverse;
-      margin-left: 25px;
+      margin-left: 18px;
     }
   }
 }

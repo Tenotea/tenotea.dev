@@ -27,8 +27,9 @@ export default defineComponent({
     font-weight: 500;
     font-size: 0.8em;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.3em;
     margin-bottom: 8px;
+    color: globals.$titleGray;
   }
   .block-content {
     color: globals.$desaturated-yellow;

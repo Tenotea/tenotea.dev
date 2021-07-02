@@ -1,8 +1,8 @@
 <template>
   <a class="action-container" target="_blank" href="/">
     <button class="website-action-button">
-      <app-icon icon="link" size="1.4" />
-      Visit Website
+      <app-icon icon="open-in-new" size="1.4" />
+      View Project
     </button>
   </a>
 </template>
@@ -30,13 +30,19 @@ export default defineComponent({
   }
   .website-action-button {
     border-radius: 4px;
-    background-color: globals.$text-highlight-blue;
+    // background-color: globals.$buttonPink; 
     padding: 4px 20px;
     font-weight: 500;
     display: flex;
     align-items: center;
     gap: 10px;
     grid-gap: 10px;
+    box-shadow: 1px 3px 10px rgba($color: #000000, $alpha: 0.3);
+    transition: 100ms ease-in;
+    font-size: 0.9em;
+    background-color: globals.$text-highlight-blue;
+    &:hover {
+    }
   }
 }
 </style>

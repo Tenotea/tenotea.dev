@@ -6,6 +6,12 @@ $footer-bg: #181A24;
   bottom: 0;
   padding: 10px 0px;
   background: $footer-bg;
+  &.has-projects-in-view {
+    margin-bottom: 46px;
+    @media screen and #{globals.$breakpoint-sm} {
+      margin-bottom: 0;
+    }
+  }
   // position: relative;
   width: 100%;
   .footer_container {

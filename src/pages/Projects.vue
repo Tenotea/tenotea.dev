@@ -37,12 +37,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @use '@/styles/variables.scss' as globals;
-  #projects {
-    margin-bottom: 0px;
-    @media screen and #{globals.$breakpoint-sm} {
-      margin-bottom: 0px;
-    }
-  }
   .projects-container {
     max-width: 1300px;
     margin: auto;

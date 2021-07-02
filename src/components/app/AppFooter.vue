@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer">
+  <footer id="footer" :class="{ 'has-projects-in-view': $route.path.split('/').includes('projects')}">
     <div class="footer_container">
       <div class="footer_container__logo">
         <app-avatar />

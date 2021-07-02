@@ -1,6 +1,6 @@
 <template>
   <div class="position-tracker">
-    4/18
+    4 of 18
   </div>
 </template>
 

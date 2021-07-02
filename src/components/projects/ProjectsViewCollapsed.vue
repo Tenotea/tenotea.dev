@@ -4,6 +4,7 @@
       <projects-project-header />
       <div class="project-data-column-two">
         <projects-project-image />
+        <projects-project-description-block style="margin-top: 40px;" />
       </div>
     </div>
   </div>
@@ -13,9 +14,10 @@
 import { defineComponent } from 'vue'
 import ProjectsProjectHeader from './ProjectsProjectHeader.vue'
 import ProjectsProjectImage from './ProjectsProjectImage.vue'
+import ProjectsProjectDescriptionBlock from './ProjectsProjectDescriptionBlock.vue';
 
 export default defineComponent({
-  components: { ProjectsProjectHeader, ProjectsProjectImage },
+  components: { ProjectsProjectHeader, ProjectsProjectImage, ProjectsProjectDescriptionBlock },
   setup() {
     
   },

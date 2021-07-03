@@ -10,7 +10,7 @@
   padding: 5px 10px;
   border-radius: 300px;
   background: rgba($color: globals.$desaturated-yellow, $alpha: 0.1);
-  max-width: max-content;
+  display: table;
   font-weight: 500;
   font-size: 0.8em;
   color: globals.$desaturated-yellow;

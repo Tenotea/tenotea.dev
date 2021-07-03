@@ -29,6 +29,7 @@ export default defineComponent({
     background-size: cover;
     background-position: top left;
     background-image: url('https://i.ibb.co/mG10p98/moviefetchers-01.png');
+    background-color: globals.$primaryDark;
     max-width: 800px;
     height: 300px;
     @media screen and #{globals.$breakpoint-sm} {

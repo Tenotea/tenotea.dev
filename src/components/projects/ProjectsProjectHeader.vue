@@ -35,7 +35,6 @@ export default defineComponent({
   &--title {
     font-size: 2em;
     max-width: 600px;
-    // width: 100%;
     @media screen and #{globals.$breakpoint-sm} {
       font-size: 2.5em;
       @media screen and #{globals.$breakpoint-md} {
@@ -59,7 +58,10 @@ export default defineComponent({
       color: inherit;
       font-weight: 500;
       font-family: 'Open Sans';
-      font-size: 1.2em;
+      font-size: 0.9em;
+      @media screen and #{globals.$breakpoint-sm} {
+        font-size: 1.2em;
+      }
       letter-spacing: 0.02em;
       font-weight: 600;
     }

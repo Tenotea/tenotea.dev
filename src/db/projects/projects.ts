@@ -5,7 +5,7 @@ interface PortfolioProject {
   feature: boolean
   position?: number
   primaryImage: string
-  link: string
+  domainName: string
   url: string
   metaDescription?: string
   description: string

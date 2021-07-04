@@ -1,5 +1,5 @@
 <template>
-  <a class="action-container" target="_blank" href="/">
+  <a class="action-container" target="_blank" :href="url">
     <button class="website-action-button">
       <app-icon icon="open-in-new" size="1.4" />
       View Project
@@ -13,9 +13,12 @@ import AppIcon from '../common/AppIcon.vue'
 
 export default defineComponent({
   components: { AppIcon },
-  setup() {
-    
-  },
+  props: {
+    url: {
+      type: String,
+      required: true
+    }
+  }
 })
 </script>
 

@@ -1,35 +1,32 @@
 @use '../../../variables.scss' as colors;
 
 ._avatar {
-  padding: 10px 0px;
+  // padding: 10px 0px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  grid-gap: 10px;
-  gap: 10px;
-  max-width: min-content; 
+  // grid-gap: 10px;
+  // gap: 10px;
+  max-width: max-content; 
   .app_avatar {
     background: url("/src/assets/images/avatar.png");
-    $avatarSize: 25px;
+    $avatarSize: 35px;
     width: $avatarSize;
     height: $avatarSize;
-    @media screen and #{colors.$breakpoint-sm} {
-      $avatarSizeMd: 25px;
-      width: $avatarSizeMd;
-      height: $avatarSizeMd;
-    }
     background-position: center center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     margin: auto;
   }
   .app_name {
-    font-weight: 400;
+    font-weight: 600;
     letter-spacing: 0.02em;
     @media screen and #{colors.$breakpoint-sm} {
-      font-size: 1.1em;
+      font-size: 1.2em;
+      margin-left: -4px;
     }
-    font-size: 1em;
-    color: #63ff2f;
+    font-size: 1.1em;
+    color: colors.$secondaryOrange;
+    margin-left: -4px;
   }
 }

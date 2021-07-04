@@ -4,17 +4,21 @@
       Description
     </h6>
     <p class="block-content">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. At repellendus minima dolor blanditiis quasi quidem. Aliquid dolorem, quod cupiditate asperiores neque voluptatem. Dignissimos praesentium cupiditate quia fugiat doloribus perspiciatis nostrum.
+      {{ project.description }}
     </p>
   </section>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
+import { PortfolioProject } from '../../db/projects/projects';
 
 export default defineComponent({
   setup() {
-    
+    const project = <PortfolioProject> inject('currentProject')
+    return {
+      project
+    }
   },
 })
 </script>

@@ -1,24 +1,36 @@
 <template>
   <main id="projects">
-      <div class="projects-container">
-        <projects-navigation />
-        <div class="projects-body">
-          <projects-view-collapsed />
-        </div>
+    <div class="projects-container">
+      <projects-navigation />
+      <div class="projects-body" :style="{height: projectBodyHeight}">
+        <transition :name="transitionName">
+          <projects-view-collapsed :key="currentProjectInView.id" :project="currentProjectInView" @heightChange="setProjectBodyHeight" />
+        </transition>
       </div>
-      <projects-project-controls icon="chevron-left" reverse>
+    </div>
+    <transition name="control-prev">
+      <projects-project-controls v-if="currentProjectIndex > 0" icon="chevron-left" reverse @project-change="handleProjectChange">
         Prev
       </projects-project-controls>
-      <projects-project-controls icon="chevron-right">
+    </transition>
+    <transition name="control-next">
+      <projects-project-controls v-if="currentProjectIndex < projects.length - 1" icon="chevron-right" @project-change="handleProjectChange">
         next
       </projects-project-controls>
-      <div class="project-position-tracker">
-        <projects-position-tracker />
-      </div>
-      <div class="project-mobile-controls">
-        <projects-project-mobile-control />
-      </div>
-      <projects-bottom-navigation />
+    </transition>
+
+    <div class="project-position-tracker">
+      <projects-position-tracker 
+        :currentNumber="currentProjectIndex + 1"
+        :totalProjects="projects.length"
+      />
+    </div>
+
+    <div class="project-mobile-controls">
+      <projects-project-mobile-control @projectChange="handleProjectChange" />
+    </div>
+
+    <projects-bottom-navigation />
   </main>
 </template>
 
@@ -30,12 +42,43 @@ import ProjectsProjectControls from '../components/projects/ProjectsProjectContr
 import ProjectsPositionTracker from '../components/projects/ProjectsPositionTracker.vue';
 import ProjectsBottomNavigation from '../components/projects/ProjectsBottomNavigation.vue';
 import ProjectsProjectMobileControl from '../components/projects/ProjectsProjectMobileControl.vue';
+import projectObjects, { PortfolioProject } from '../db/projects/projects';
 
 export default defineComponent({
   components: { ProjectsNavigation, ProjectsViewCollapsed, ProjectsProjectControls, ProjectsPositionTracker, ProjectsBottomNavigation, ProjectsProjectMobileControl },
   setup() {
-    
+    return {
+      projects: projectObjects
+    }
   },
+
+  data: () => ({
+    currentProjectIndex: 0,
+    transitionName: 'project-next',
+    projectBodyHeight: '0px'
+  }),
+
+  computed: {
+    currentProjectInView (): PortfolioProject {
+      return this.projects[this.currentProjectIndex]
+    }
+  },
+
+  methods: {
+    handleProjectChange (action: string) {
+      if (action === 'next') {
+        this.transitionName = `project-${action}`
+        if ( this.currentProjectIndex < this.projects.length - 1 ) this.currentProjectIndex += 1
+      } else if (action === 'prev') {
+        this.transitionName = `project-${action}`
+        if (this.currentProjectIndex > 0) this.currentProjectIndex -= 1
+      }
+    },
+
+    setProjectBodyHeight (height: number) {
+      this.projectBodyHeight = height + 'px'
+    }
+  }
 })
 </script>
 
@@ -46,6 +89,8 @@ export default defineComponent({
     margin: auto;
     padding: 50px 40px;
     .projects-body {
+      position: relative;
+      width: 100%;
       @media screen and #{globals.$breakpoint-sm} {
         margin-top: 70px;
         padding: 0px 40px;
@@ -65,5 +110,36 @@ export default defineComponent({
     @media screen and #{globals.$breakpoint-sm} {
       display: none;
     }
+  }
+
+  .project-next-enter-active, .project-next-leave-active, .project-prev-enter-active, .project-prev-leave-active {
+    // position: absolute;
+    transform-style: preserve-3d;
+    transition: 0.5s ease;
+    transition-property: transform, opacity;
+  }
+  
+  .project-prev-enter-from, .project-next-leave-to {
+    opacity: 0;
+    transform: translateX(-60%);
+  }
+  
+  .project-prev-leave-to, .project-next-enter-from {
+    opacity: 0;
+    transform: translateX(60%);
+  }
+
+  .control-prev-enter-active, .control-next-enter-active, .control-prev-leave-active , .control-next-leave-active {
+    transition: 0.5s ease;
+    transition-property: transform, opacity;
+    position: absolute;
+  }
+
+  .control-prev-enter-from, .control-prev-leave-to {
+    transform: translateX(-100%);
+  }
+  .control-next-enter-from, .control-next-leave-to {
+    opacity: 0;
+    transform: translateX(100%);
   }
 </style>

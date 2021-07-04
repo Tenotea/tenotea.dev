@@ -3,11 +3,11 @@
     <div class="layer_bg_one">
       <h1 class="project_name" ref="waterMark"> {{ project.name }} </h1>
     </div>
-    <div class="layer_bg_two" :class="{ scrolled_into_view: scrolled, reverse: project.reversed }" :style="cssVars">
+    <div class="layer_bg_two" :class="{ scrolled_into_view: scrolled, reverse: project.position === 2 }" :style="cssVars">
     </div>
 
     <div class="content_container">
-      <project-card :project="project" :reverse="project.reversed" />
+      <project-card :project="project" :reverse="project.position === 2" />
     </div>
   </section>  
 </template>
@@ -17,14 +17,14 @@
 import gsap, { Power1 } from 'gsap/all'
 import CommonSectionTitle from '../../common/CommonSectionTitle.vue'
 import ProjectCard from './ProjectCard.vue'
-import { ProjectInformation } from './Projects.vue'
+import { PortfolioProject } from '../../../db/projects/projects'
 
 export default defineComponent({
   components: { CommonSectionTitle, ProjectCard },
 
   props: {
     project: {
-      type: Object as PropType<ProjectInformation>,
+      type: Object as PropType<PortfolioProject>,
       required: true
     }
   },
@@ -57,7 +57,7 @@ export default defineComponent({
       entries.forEach(({ isIntersecting }) => {
         if (isIntersecting) {
           gsap.fromTo(waterMark, {
-            x: !this.project.reversed ? '-80%' : '20%',
+            x: !(this.project.position === 2) ? '-80%' : '20%',
             opacity: 0
           }, {
             x: '0%',

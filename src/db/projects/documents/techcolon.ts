@@ -1,4 +1,6 @@
-export const arioso:PortfolioProject = {
+import { PortfolioProject } from "../projects";
+
+export const techcolon:PortfolioProject = {
   id: 'techcolon-blog',
   name: 'Techcolon',
   label: 'frontend',

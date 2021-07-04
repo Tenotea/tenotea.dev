@@ -1,12 +1,14 @@
 <template>
   <div class="bottom-nav" :style="cssVars">
     <div class="bottom-nav--container">
-      <div v-for="item in navRoutes" :key="item.id" class="bottom-nav--item" :class="{ active: item.id === currentRouteId }" @click="onNavigateHandler(item.id)">
-        <app-icon :icon="item.icon" :hover="item.theme" size="1.3" :class="{ active: item.id === currentRouteId }" />
-        <p class="bottom-nav--item__name" :class="{ active: item.id === currentRouteId }">
-          {{ item.name }}
-        </p>
-      </div>
+      <router-link v-for="item in navRoutes" :key="item.id" :to=" item.id > 1 ? `/projects?label=${item.query}` : '/projects'">
+        <div class="bottom-nav--item" :class="{ active: item.query === currentRouteId }">
+          <app-icon :icon="item.icon" :hover="item.theme" size="1.3" :class="{ active: item.query === currentRouteId }" />
+          <p class="bottom-nav--item__name" :class="{ active: item.query === currentRouteId }">
+            {{ item.name }}
+          </p>
+        </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -24,23 +26,15 @@ export default defineComponent({
     }
   },
 
-  data () {
-    return {
-      currentRouteId: 1
-    }
-  },
-
   computed: {
     cssVars ():any {
       return {
-        '--theme': this.navRoutes[this.currentRouteId - 1].theme
+        '--theme': this.navRoutes.find(el => el.query === this.currentRouteId)?.theme
       }
-    }
-  },
+    },
 
-  methods: {
-    onNavigateHandler (id:number) {
-      this.currentRouteId = id
+    currentRouteId ():string | undefined {
+      return <string> this.$route.query.label
     }
   }
 })
@@ -65,6 +59,7 @@ export default defineComponent({
     max-width: max-content;
     margin: auto;
     grid-gap: 30px;
+    padding: 5px 0px;
   }
   &--item {
     max-width: max-content;

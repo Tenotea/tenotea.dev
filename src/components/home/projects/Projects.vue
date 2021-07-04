@@ -5,103 +5,21 @@
         Work Experience
       </common-section-title>
     </div>
-    <projects-window v-for="project in projects" :key="project.position" :project="project" />
+    <projects-window v-for="project in projects" :key="project.id" :project="project" />
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import projectObjects from '../../../db/projects/projects';
 import CommonSectionTitle from '../../common/CommonSectionTitle.vue'
 import ProjectsWindow from './ProjectsWindow.vue'
 
-export interface ProjectInformation {
-  name: string
-  link: string
-  url: string
-  theme: string
-  reversed: boolean
-  description: string
-  stack: {
-    id: number
-    name: string
-    url: string
-  }[]
-  meta: boolean
-  images: string[]
-  position: number
-}
 
 export default defineComponent({
   components: { ProjectsWindow, CommonSectionTitle },
   data: () => ({
-    projects: [{
-      name: 'Arioso',
-      link: 'arioso.ml',
-      url: 'https://arioso.ml',
-      theme: '#4778ff',
-      description: 'A fully featured web based music player built with nuxt.js with PWA features.',
-      stack: [{
-        id: 1,
-        name: 'Nuxt.js',
-        url: 'https://nodejs.org'
-      }, {
-        id: 2,
-        name: 'Local Forage',
-        url: 'https://localforage.github.io'
-      }],
-      meta: false,
-      images: ['https://i.ibb.co/h907Zwm/Arioso-01.png', 'https://i.ibb.co/BjLkQNh/arioso-2.png'],
-      position: 1
-    }, {
-      name: 'Movie Fetchers',
-      link: 'moviefetchers.cf',
-      url: 'https://moviefetchers.cf',
-      theme: '#ff4747',
-      reversed: true,
-      description: 'Moviefetchers provides access to a collection library of downloadable asian dramas.',
-      stack: [{
-        id: 1,
-        name: 'Vue.js',
-        url: 'https://vuejs.org'
-      }, {
-        id: 4,
-        name: 'Vuetify.js',
-        url: 'https://vuetifyjs.com'
-      }, {
-        id: 2,
-        name: 'Node.js',
-        url: 'https://nodejs.org'
-      }, {
-        id: 3,
-        name: 'MongoDB',
-        url: 'https://mongodb.com'
-      }],
-      meta: false,
-      images: ['https://i.ibb.co/mG10p98/moviefetchers-01.png', 'https://i.ibb.co/XJMXb1v/moviefetchers-02.png'],
-      position: 2
-    }, {
-      name: 'Techcolon',
-      link: 'techcolon.net',
-      url: 'https://techcolon.net',
-      theme: '#52ff88',
-      reversed: false,
-      description: 'My personal blog where i write web related contents just for the fun of it.',
-      stack: [ {
-        id: 1,
-        name: 'Node.js',
-        url: 'https://nodejs.org'
-      }, {
-        id: 2,
-        name: 'Firebase',
-        url: 'https://mongodb.com'
-      }, {
-        id: 3,
-        name: 'EJS & CSS'
-      }],
-      meta: false,
-      images: ['https://i.ibb.co/By1fxVm/techcolon-01.png', 'https://i.ibb.co/4ggBxWW/techcolon-02.png'],
-      position: 3
-    }] as ProjectInformation[]
+    projects: projectObjects
   })
 })
 </script>

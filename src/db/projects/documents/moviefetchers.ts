@@ -1,3 +1,5 @@
+import { PortfolioProject } from "../projects";
+
 export const movieFetchers:PortfolioProject = {
   id: 'movie-fetchers-asian-dramas',
   name: 'Movie Fetchers',
@@ -40,5 +42,5 @@ export const movieFetchers:PortfolioProject = {
   myRole: 'I was the solo Fullstack engineer of the project. I started from ground up the UI Design, to building the REST API and then consuming it in building the website as we know it. This would end up becoming my first design-to-code project and even now, I am still very proud of it',
   productsDeveloped: ['Movie Fetchers website', 'Admin Panel', 'REST APIs'],
   snapshots: ['https://i.ibb.co/XJMXb1v/moviefetchers-02.png'],
-  theme: '#4778ff'
+  theme: '#ff4747'
 }

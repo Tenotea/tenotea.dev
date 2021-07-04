@@ -1,4 +1,8 @@
-interface PortfolioProject {
+import { arioso } from "./documents/arioso";
+import { movieFetchers } from "./documents/moviefetchers";
+import { techcolon } from "./documents/techcolon";
+
+export interface PortfolioProject {
   id: string
   name: string
   label: string
@@ -20,3 +24,11 @@ interface PortfolioProject {
   snapshots: string[]
   theme: string
 }
+
+const projectObjects = [
+  arioso,
+  movieFetchers,
+  techcolon
+]
+
+export default projectObjects

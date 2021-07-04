@@ -1,18 +1,30 @@
 <template>
   <div class="image-box">
-    <div class="image-item">
+    <div class="image-item" :style="backgroundImage">
 
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
+import { PortfolioProject } from '../../db/projects/projects';
 
 export default defineComponent({
-  setup() {
-    
+  setup () {
+    const project = <PortfolioProject> inject('currentProject')
+    return {
+      project
+    }
   },
+
+  computed: {
+    backgroundImage ():any {
+      return {
+        '--image': `url(${this.project.primaryImage})`
+      }
+    }
+  }
 })
 </script>
 
@@ -28,7 +40,7 @@ export default defineComponent({
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top left;
-    background-image: url('https://i.ibb.co/mG10p98/moviefetchers-01.png');
+    background-image: var(--image);
     background-color: globals.$primaryDark;
     max-width: 800px;
     height: 300px;

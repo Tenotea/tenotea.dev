@@ -1,3 +1,5 @@
+import { PortfolioProject } from "../projects";
+
 export const arioso:PortfolioProject = {
   id: 'arioso-web-music-player',
   name: 'Arioso',
@@ -8,7 +10,7 @@ export const arioso:PortfolioProject = {
   domainName: 'arioso.ml',
   url: 'https://arioso.ml',
   metaDescription: 'A fully featured web based music player built with nuxt.js with PWA features.',
-  description: 'Arioso is a web based music player built as a progressive web app which was enables it to work fully offline',
+  description: 'Arioso is a web based music player built as a progressive web app which was enables it to work fully offline. It is fully featured and works with common audio qualities.',
   technologies: [
     {
       id: 1,

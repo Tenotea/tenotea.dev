@@ -1,8 +1,26 @@
 <template>
   <div class="position-tracker">
-    4 of 18
+    {{ currentNumber }} of {{ totalProjects }}
   </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  props: {
+    currentNumber: {
+      type: Number,
+      required: true
+    },
+    totalProjects: {
+      type: Number,
+      required: true
+    }
+  }
+})
+</script>
+
 
 <style lang="scss" scoped>
 @use '@/styles/variables.scss' as globals;

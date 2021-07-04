@@ -1,9 +1,11 @@
 <template>
   <nav class="navigation">
     <ul class="nav-items">
-      <li v-for="item in navItems" :key="item.id" :class="`nav-item ${currentRouteId === item.id ? 'nav-item-active' : ''}`" :style="cssVars" @click="onNavigateHandler(item.id)">
-        {{ item.name }}
-      </li>
+      <router-link v-for="item in navItems" :key="item.id" :to=" item.id > 1 ? `/projects?label=${item.query}` : '/projects'">
+        <li :class="`nav-item ${currentRouteId === item.query ? 'nav-item-active' : ''}`" :style="cssVars">
+          {{ item.name }}
+        </li>
+      </router-link>
     </ul>
   </nav>
 </template>
@@ -18,23 +20,16 @@ export default defineComponent({
       navItems: projectsRoutes 
     }
   },
-  data () {
-    return {
-      currentRouteId: 1
-    }
-  },
 
   computed: {
     cssVars ():any {
       return {
-        '--theme': projectsRoutes[this.currentRouteId - 1].theme
+        '--theme': projectsRoutes.find(el => el.query === this.currentRouteId)?.theme || '#fffdf6cc'
       }
-    }
-  },
+    },
 
-  methods: {
-    onNavigateHandler (id:number) {
-      this.currentRouteId = id
+    currentRouteId ():string | undefined {
+      return <string> this.$route.query.label
     }
   }
 })

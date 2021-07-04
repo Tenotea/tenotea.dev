@@ -1,28 +1,33 @@
 <template>
   <div class="project-header">
     <h1 class="project-header--title">
-      Moviefetchers - Kdrama Website
+      {{ project.name }}
     </h1>
-    <a class="project-header--link" href="https://moviefetchers.cf" target="_blank" rel="noreferrer noopener">
+    <p class="project-header--link">
       <app-icon icon="web" size="1.1" />
       <span class="project-link">
-        https://moviefetchers.cf
+        {{ project.domainName }}
       </span>
-    </a>
-    <projects-project-open-button />
+    </p>
+    <projects-project-open-button :url="project.url" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
+import { PortfolioProject } from '../../db/projects/projects';
 import AppIcon from '../common/AppIcon.vue'
 import ProjectsProjectOpenButton from './ProjectsProjectOpenButton.vue'
 
 export default defineComponent({
-  components: { AppIcon, ProjectsProjectOpenButton },
-  setup() {
-    
+  setup () {
+    const project = <PortfolioProject> inject('currentProject')
+    return {
+      project
+    }
   },
+
+  components: { AppIcon, ProjectsProjectOpenButton }
 })
 </script>
 
@@ -33,6 +38,8 @@ export default defineComponent({
     width: max-content;
   }
   &--title {
+    position: relative;
+    z-index: 1;
     font-size: 2em;
     max-width: 600px;
     @media screen and #{globals.$breakpoint-sm} {
@@ -49,10 +56,11 @@ export default defineComponent({
     -webkit-background-clip: text;
     -moz-background-clip: text;
     color: transparent;
-    background-size: 100% 100%;
+    background-size: 70%;
     transition: 900ms ease-out background-size;
     &:hover {
-      background-size: 200% 200%;
+      background-size: 100%;
+      text-decoration: underline;
     }
     .project-link {
       color: inherit;
@@ -62,8 +70,8 @@ export default defineComponent({
       @media screen and #{globals.$breakpoint-sm} {
         font-size: 1.2em;
       }
-      letter-spacing: 0.02em;
       font-weight: 600;
+      margin-left: 8px;
     }
   }
 }

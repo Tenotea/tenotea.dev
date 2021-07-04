@@ -7,18 +7,18 @@
             <h1 class="header__title"> {{ project.name }} </h1>
             <a class="header__link" :href="project.url" target="_blank" noopener noreferrer>
               <!-- <app-icon icon="link" /> -->
-              <span class="header__link--name"> {{ project.link }} </span>
+              <span class="header__link--name"> {{ project.domainName }} </span>
             </a>
           </div>
           <p class="description">
-            {{ project.description }}
+            {{ project.metaDescription }}
           </p>
           <div class="stack_information">
             <app-icon size="1.3" icon="code-tags" />
             <div class="stack_information__stacks">
-              <template v-for="(stack, index) in project.stack" :key="stack.id"> 
+              <template v-for="(stack, index) in project.technologies.slice(0, 4)" :key="stack.id"> 
                 <span class="stack"> {{ stack.name }} </span>
-                <span class="delimiter" v-if="index < project.stack.length - 1"> + </span>
+                <span class="delimiter" v-if="index < project.technologies.slice(0, 3).length "> + </span>
               </template>
             </div>
           </div>
@@ -26,29 +26,20 @@
             <app-icon size="1" icon="open-in-new" />
             <span class="link_action__name"> Visit Site </span>
           </a>
-          <div v-if="project.meta" class="meta">
-            <h6 class="meta__header"> - Related to this </h6>
-            <div class="meta__item">
-              <img src="/src/assets/icons/check.svg" alt="tenotea_item" />
-              <p class="meta__item--name"> Techcolon Editor </p>
-            </div>
-            <div class="meta__item">
-              <img src="/src/assets/icons/check.svg" alt="tenotea_item" />
-              <p class="meta__item--name"> Techcolon Author </p>
-            </div>
-          </div>
-          <!-- <p class="view_action"> Learn more > </p> -->
+          <router-link :to="`/projects/${project.id}`">
+            <p class="view_action"> Learn more > </p>
+          </router-link>
         </div>
       </div>
       <div class="project__information--right_pane">
-        <div class="project_image" :style="{ backgroundImage: `url(${project.images[0]})`}">
+        <div class="project_image" :style="{ backgroundImage: `url(${project.primaryImage})`}">
         </div>
-        <div class="project_image" :style="{ backgroundImage: `url(${project.images[1]})`}">
+        <div class="project_image" :style="{ backgroundImage: `url(${project.snapshots[0]})`}">
         </div>
       </div>
     </div>
-    <div class="position_indicator" :class="{ reversed: project.reversed }">
-      <project-position-indicator :reverse="project.reversed">
+    <div class="position_indicator" :class="{ reversed: project.position === 2 }">
+      <project-position-indicator :reverse="project.position === 2">
         0{{project.position}}
       </project-position-indicator>
     </div>
@@ -60,11 +51,11 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
+import { PortfolioProject } from '../../../db/projects/projects'
 import AppIcon from '../../common/AppIcon.vue'
 import CommonSquareGrid from '../../common/CommonSquareGrid.vue'
 import HeroBubble from '../hero/HeroBubble.vue'
 import ProjectPositionIndicator from './ProjectPositionIndicator.vue'
-import { ProjectInformation } from './Projects.vue'
 
 export default defineComponent({
   components: { AppIcon, CommonSquareGrid, ProjectPositionIndicator, HeroBubble },
@@ -73,7 +64,7 @@ export default defineComponent({
       type: Boolean
     },
     project: {
-      type: Object as PropType<ProjectInformation>,
+      type: Object as PropType<PortfolioProject>,
         required: true
     }
   }

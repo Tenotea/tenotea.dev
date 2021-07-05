@@ -19,10 +19,17 @@ const routes:RouteRecordRaw[] = [
     alias: '/about',
     component: () => import('@/pages/About.vue')
   },
+  // {
+  //   name: 'Projects',
+  //   path: '/projects',
+  //   alias: '/works',
+  //   component: () => import('@/pages/Projects.vue')
+  // },
   {
-    name: 'Projects',
-    path: '/projects',
-    alias: '/works',
+    name: 'Project Details',
+    path: '/projects/:projectId?',
+    alias: '/works/:projectId?',
+    props: true,
     component: () => import('@/pages/Projects.vue')
   }
 ]

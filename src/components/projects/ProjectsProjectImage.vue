@@ -1,9 +1,11 @@
 <template>
-  <div class="image-box">
-    <div class="image-item" :style="backgroundImage">
+    <router-link :to="'/projects/'+project.id">
+      <div class="image-box">
+        <div class="image-item" :style="backgroundImage">
 
-    </div>
-  </div>
+        </div>
+      </div> 
+    </router-link>
 </template>
 
 <script lang="ts">
@@ -35,11 +37,12 @@ export default defineComponent({
   width: max-content;
   border-radius: 10px;
   width: 100%;
+  transform: rotate(0deg);
   .image-item {
     position: relative;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top left;
+    background-size: 100%;
+    background-position: top center;
     background-image: var(--image);
     background-color: globals.$primaryDark;
     max-width: 800px;
@@ -50,6 +53,10 @@ export default defineComponent({
     width: 100%;
     z-index: 1;
     border-radius: inherit;
+    transition: ease-in-out 200ms background-size;
+    &:hover {
+      background-size: 110%;
+    }
   }
   &::after {
     content: '';

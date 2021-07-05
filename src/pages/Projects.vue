@@ -4,7 +4,10 @@
       <projects-navigation />
       <div class="projects-body" :style="{height: projectBodyHeight}">
         <transition :name="transitionName">
-          <projects-view-collapsed :key="currentProjectInView.id" :project="currentProjectInView" @heightChange="setProjectBodyHeight" />
+          <projects-view-collapsed v-if="!projectId" :key="currentProjectInView.id" :project="currentProjectInView" @heightChange="setProjectBodyHeight" />
+          <div v-else>
+            {{ projectId }}
+          </div>
         </transition>
       </div>
     </div>
@@ -46,6 +49,14 @@ import projectObjects, { PortfolioProject } from '../db/projects/projects';
 
 export default defineComponent({
   components: { ProjectsNavigation, ProjectsViewCollapsed, ProjectsProjectControls, ProjectsPositionTracker, ProjectsBottomNavigation, ProjectsProjectMobileControl },
+
+  props: {
+    projectId: {
+      type: String,
+      default: ''
+    }
+  },
+
   setup() {
     return {
       projects: projectObjects
@@ -64,6 +75,12 @@ export default defineComponent({
     }
   },
 
+  created () {
+    if (this.projectId) {
+      this.currentProjectIndex = this.projects.findIndex(el => el.id === this.projectId)
+    }
+  },
+
   methods: {
     handleProjectChange (action: string) {
       if (action === 'next') {
@@ -72,6 +89,11 @@ export default defineComponent({
       } else if (action === 'prev') {
         this.transitionName = `project-${action}`
         if (this.currentProjectIndex > 0) this.currentProjectIndex -= 1
+      }
+
+      if (this.projectId) {
+        const nextProject = this.projects[this.currentProjectIndex]
+        this.$router.push(`/projects/${nextProject.id}`)
       }
     },
 

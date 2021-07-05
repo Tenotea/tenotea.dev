@@ -1,12 +1,9 @@
 @use '../../../variables.scss' as colors;
 
 ._avatar {
-  // padding: 10px 0px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  // grid-gap: 10px;
-  // gap: 10px;
   max-width: max-content; 
   .app_avatar {
     background: url("/src/assets/images/avatar.png");

@@ -3,8 +3,8 @@
     <hero />
     <skills />
     <projects />
-    <about />
-    <pre-footer />
+    <!-- <about /> -->
+    <!-- <pre-footer /> -->
   </section>
 </template>
 

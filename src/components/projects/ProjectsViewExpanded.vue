@@ -102,6 +102,8 @@ export default defineComponent({
 .project-data {
   width: 100%;
   position: absolute;
+  top: 0;
+  left: 0;
   justify-content: space-between;
   .project-data-image {
     margin-top: 70px;

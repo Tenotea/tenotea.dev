@@ -58,6 +58,8 @@ export default defineComponent({
   gap: 10px;
   grid-gap: 10px;
   position: absolute;
+  top: 0;
+  left: 0;
   .project-data-column-two {
     margin-top: 70px;
   }

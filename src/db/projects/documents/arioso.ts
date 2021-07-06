@@ -45,6 +45,11 @@ export const arioso:PortfolioProject = {
       id: 2,
       name: 'Arioso - Music session',
       url: 'https://i.ibb.co/BjLkQNh/arioso-2.png'
+    },
+    {
+      id: 3,
+      name: 'Arioso - Music list',
+      url: 'https://i.ibb.co/h907Zwm/Arioso-01.png'
     }
   ],
   theme: '#4778ff'

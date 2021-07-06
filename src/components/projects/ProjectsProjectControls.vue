@@ -43,7 +43,7 @@ export default defineComponent({
   }
   max-width: max-content;
   display: none;
-  min-height: 100vh;
+  min-height: 100%;
   flex-direction: column;
   position: fixed;
   top: 0;

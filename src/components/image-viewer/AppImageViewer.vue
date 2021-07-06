@@ -1,18 +1,20 @@
 <template>
   <section class="image-viewer-root">
     <!-- Mini -->
-    <image-viewer-mini :src="currentImageInView" :next="hasNextImage" :previous="hasPreviousImage" @change-image="changeImage" />
+    <image-viewer-mini :src="currentImageInView" :next="hasNextImage" :previous="hasPreviousImage" @change-image="changeImage" @goFullScreen="handleGoFullScreen" />
     <!-- Full screen -->
+    <image-viewer-full-screen v-if="openInFullScreen" />
   </section>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from 'vue'
 import { ProjectImage } from '../../db/projects/projects';
+import ImageViewerFullScreen from './ImageViewerFullScreen.vue';
 import ImageViewerMini from './ImageViewerMini.vue';
 
 export default defineComponent({
-  components: { ImageViewerMini },
+  components: { ImageViewerMini, ImageViewerFullScreen },
   props: {
     images: {
       type: Array as PropType<ProjectImage[]>,
@@ -22,7 +24,8 @@ export default defineComponent({
 
   data () {
     return {
-      currentImageIndex: 0
+      currentImageIndex: 0,
+      openInFullScreen: false
     }
   },
 
@@ -32,7 +35,6 @@ export default defineComponent({
     },
 
     hasNextImage ():boolean {
-      console.log(this.images.length - 1 )
       return this.images.length - 1 > this.currentImageIndex 
     },
 
@@ -57,6 +59,10 @@ export default defineComponent({
       if (method === 'prev' && this.hasPreviousImage) {
         this.currentImageIndex--
       }
+    },
+
+    handleGoFullScreen () {
+      this.openInFullScreen = true
     }
   }
 })

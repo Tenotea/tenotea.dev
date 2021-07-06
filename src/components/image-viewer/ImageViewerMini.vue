@@ -22,7 +22,7 @@ export default defineComponent({
     }
   },
 
-  emits: ['changeImage'],
+  emits: ['changeImage', 'goFullScreen'],
 
   methods: {
     handleImageChange (action: string) {
@@ -30,7 +30,7 @@ export default defineComponent({
     },
 
     handleViewMaximized () {
-      console.log('View full screen')
+      this.$emit('goFullScreen')
     }
   }
 })

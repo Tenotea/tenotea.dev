@@ -31,9 +31,15 @@
         </projects-project-description-block>
       </div>
       <section class="snapshot-section">
-        <common-section-title>
-          Product Snapshots
-        </common-section-title>
+        <div class="section-title">
+          <common-section-title>
+            Product Snapshots
+          </common-section-title>
+        </div>
+
+        <div class="image-viewer-section">
+          <app-image-viewer :images="project.snapshots" />
+        </div>
       </section>
     </div>
   </div>
@@ -48,9 +54,10 @@ import { PortfolioProject } from '../../db/projects/projects';
 import ProjectsProjectProductsDevelopedBlock from './ProjectsProjectProductsDevelopedBlock.vue';
 import ProjectInformationGridList from './ProjectInformationGridList.vue';
 import CommonSectionTitle from '../common/CommonSectionTitle.vue';
+import AppImageViewer from '../image-viewer/AppImageViewer.vue';
 
 export default defineComponent({
-  components: { ProjectsProjectHeader, ProjectsProjectImage, ProjectsProjectDescriptionBlock, ProjectsProjectProductsDevelopedBlock, ProjectInformationGridList, CommonSectionTitle },
+  components: { ProjectsProjectHeader, ProjectsProjectImage, ProjectsProjectDescriptionBlock, ProjectsProjectProductsDevelopedBlock, ProjectInformationGridList, CommonSectionTitle, AppImageViewer },
   emits: ['heightChange'],
   props: {
     project: {
@@ -130,6 +137,10 @@ export default defineComponent({
   position: relative;
   z-index: 1;
   min-height: 600px;
-  margin-top: 100px;
+  margin-top: 70px;
+
+  .image-viewer-section {
+    margin: 40px auto;
+  }
 }
 </style>

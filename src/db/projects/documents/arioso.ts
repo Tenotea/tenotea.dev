@@ -6,7 +6,11 @@ export const arioso:PortfolioProject = {
   label: 'frontend',
   feature: true,
   position: 1,
-  primaryImage: 'https://i.ibb.co/h907Zwm/Arioso-01.png',
+  primaryImage: {
+    id: 1,
+    name: 'Arioso - Song list',
+    url: 'https://i.ibb.co/h907Zwm/Arioso-01.png',
+  },
   domainName: 'arioso.ml',
   url: 'https://arioso.ml',
   metaDescription: 'A fully featured web based music player built with nuxt.js with PWA features.',
@@ -36,6 +40,12 @@ export const arioso:PortfolioProject = {
   durationOfCompletion: 'A working version was built within 15days',
   myRole: 'Frontend engineer in a team of two. I built the whole thing and got some help improving the performance',
   productsDeveloped: ['A music player'],
-  snapshots: ['https://i.ibb.co/BjLkQNh/arioso-2.png'],
+  snapshots: [
+    {
+      id: 2,
+      name: 'Arioso - Music session',
+      url: 'https://i.ibb.co/BjLkQNh/arioso-2.png'
+    }
+  ],
   theme: '#4778ff'
 }

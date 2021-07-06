@@ -6,7 +6,10 @@ export const techcolon:PortfolioProject = {
   label: 'frontend',
   feature: true,
   position: 3,
-  primaryImage: 'https://i.ibb.co/By1fxVm/techcolon-01.png',
+  primaryImage: {
+    id: 1,
+    url: 'https://i.ibb.co/By1fxVm/techcolon-01.png'
+  },
   domainName: 'techcolon.net',
   url: 'https://techcolon.net',
   metaDescription: 'My personal blog where i write web related contents just for the fun of it.',
@@ -41,6 +44,9 @@ export const techcolon:PortfolioProject = {
   durationOfCompletion: 'A working version was built and deployed within 30days. The best part is, the initial version was built entirely using a mobile phone.',
   myRole: 'Solo Fullstack Engineer. It was quite exciting',
   productsDeveloped: ['Techcolon blog', 'Techcolon Admin Panel'],
-  snapshots: ['https://i.ibb.co/4ggBxWW/techcolon-02.png'],
+  snapshots: [{
+    id: 2,
+    url: 'https://i.ibb.co/4ggBxWW/techcolon-02.png'
+  }],
   theme: '#52ff88'
 }

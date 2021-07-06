@@ -27,7 +27,7 @@ export default defineComponent({
   computed: {
     backgroundImage ():any {
       return {
-        '--image': `url(${this.project.primaryImage})`
+        '--image': `url(${this.project.primaryImage.url})`
       }
     }
   }

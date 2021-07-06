@@ -32,9 +32,9 @@
         </div>
       </div>
       <div class="project__information--right_pane">
-        <div class="project_image" :style="{ backgroundImage: `url(${project.primaryImage})`}">
+        <div class="project_image" :style="{ backgroundImage: `url(${project.primaryImage.url})`}">
         </div>
-        <div class="project_image" :style="{ backgroundImage: `url(${project.snapshots[0]})`}">
+        <div class="project_image" :style="{ backgroundImage: `url(${project.snapshots[0].url})`}">
         </div>
       </div>
     </div>

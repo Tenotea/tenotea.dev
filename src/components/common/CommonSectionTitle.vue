@@ -5,7 +5,7 @@
       md-size="6px"
       md-gap="5px"
       md-left="-15px"
-      left="10px"
+      left="-10px"
       top="0px"
       color="#5A4B3F"
     />

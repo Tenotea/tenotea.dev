@@ -8,7 +8,7 @@ export interface PortfolioProject {
   label: string
   feature: boolean
   position?: number
-  primaryImage: string
+  primaryImage: ProjectImage
   domainName: string
   url: string
   metaDescription?: string
@@ -21,8 +21,15 @@ export interface PortfolioProject {
   durationOfCompletion: string
   myRole: string,
   productsDeveloped: string[]
-  snapshots: string[]
+  snapshots: ProjectImage[]
   theme: string
+}
+
+export interface ProjectImage {
+  id: number
+  name?: string
+  url: string
+  highResUrl?: string
 }
 
 const projectObjects = [

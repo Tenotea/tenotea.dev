@@ -6,7 +6,10 @@ export const movieFetchers:PortfolioProject = {
   label: 'frontend',
   feature: true,
   position: 2,
-  primaryImage: 'https://i.ibb.co/mG10p98/moviefetchers-01.png',
+  primaryImage: {
+    id: 1,
+    url: 'https://i.ibb.co/mG10p98/moviefetchers-01.png'
+  },
   domainName: 'moviefetchers.cf',
   url: 'https://moviefetchers.cf',
   metaDescription: 'Asian Dramas at their best in multiple downloadable formats.',
@@ -41,6 +44,11 @@ export const movieFetchers:PortfolioProject = {
   durationOfCompletion: 'A working version was built within 40days',
   myRole: 'I was the solo Fullstack engineer of the project. I started from ground up the UI Design, to building the REST API and then consuming it in building the website as we know it. This would end up becoming my first design-to-code project and even now, I am still very proud of it',
   productsDeveloped: ['Movie Fetchers website', 'Admin Panel', 'REST APIs'],
-  snapshots: ['https://i.ibb.co/XJMXb1v/moviefetchers-02.png'],
+  snapshots: [
+    {
+      id: 2,
+      url: 'https://i.ibb.co/XJMXb1v/moviefetchers-02.png'
+    }
+  ],
   theme: '#ff4747'
 }

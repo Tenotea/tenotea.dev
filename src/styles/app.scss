@@ -33,11 +33,11 @@ body {
     filter: blur(23px) brightness(50%) opacity(100%);
   }
   .content_wrap {
-    padding-bottom: 200px;
+    padding-bottom: 220px;
     @media screen and #{colors.$breakpoint-sm} {
-      padding-bottom: 170px;
+      padding-bottom: 190px;
       @media screen and #{colors.$breakpoint-md} {
-        padding-bottom: 70px;
+        padding-bottom: 90px;
       }
     }
   }

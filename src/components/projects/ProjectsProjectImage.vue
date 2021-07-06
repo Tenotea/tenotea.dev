@@ -1,11 +1,9 @@
 <template>
-    <router-link :to="'/projects/'+project.id">
-      <div class="image-box">
-        <div class="image-item" :style="backgroundImage">
+  <div class="image-box" :class="{ collapsed: isCollapsed }">
+    <div class="image-item" :style="backgroundImage">
 
-        </div>
-      </div> 
-    </router-link>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -17,6 +15,12 @@ export default defineComponent({
     const project = <PortfolioProject> inject('currentProject')
     return {
       project
+    }
+  },
+
+  props: {
+    isCollapsed: {
+      type: Boolean
     }
   },
 
@@ -38,25 +42,30 @@ export default defineComponent({
   border-radius: 10px;
   width: 100%;
   transform: rotate(0deg);
+  &.collapsed {
+    .image-item {
+      height: 300px;
+      &:hover {
+        transform: scale(1.01);
+      }
+      @media screen and #{globals.$breakpoint-sm} {
+        height: 400px;
+      }
+    }
+  }
   .image-item {
     position: relative;
     background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: top center;
+    background-size: cover;
+    background-position: left center;
     background-image: var(--image);
     background-color: globals.$primaryDark;
     max-width: 800px;
-    height: 300px;
-    @media screen and #{globals.$breakpoint-sm} {
-      height: 400px;
-    }
     width: 100%;
     z-index: 1;
     border-radius: inherit;
-    transition: ease-in-out 200ms background-size;
-    &:hover {
-      background-size: 110%;
-    }
+    transition: ease-in-out 300ms transform;
+    min-height: 250px;
   }
   &::after {
     content: '';

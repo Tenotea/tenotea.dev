@@ -11,7 +11,7 @@ export const projectsRoutes:PortfolioProjectsRoute[] = [
     id: 1,
     name: 'All',
     icon: 'briefcase',
-    query: undefined,
+    query: '',
     theme: '#FF903B'
   },
   {
@@ -19,14 +19,14 @@ export const projectsRoutes:PortfolioProjectsRoute[] = [
     name: 'Design',
     icon: 'palette',
     query: 'design',
-    theme: '#4778ff'
+    theme: '#b0f755'
   },
   {
     id: 3,
     name: 'Frontend',
     icon: 'desktop-mac',
     query: 'frontend',
-    theme: '#FF246F'
+    theme: '#1f96ff'
   },
   {
     id: 4,

@@ -18,6 +18,7 @@ import AppHeader from './components/app/AppHeader.vue'
 import AppNavigationAlt from './components/app/AppNavigationAlt.vue'
 import SocialMedia from './components/app/SocialMedia.vue'
 import AppPageTransition from './components/app/AppPageTransition.vue'
+import { RouteLocation } from 'vue-router'
 
 export default defineComponent({
   name: 'App',
@@ -46,7 +47,14 @@ export default defineComponent({
   },
 
   watch: {
-    '$route' (newRoute, oldRoute) {
+    '$route' (newRoute: RouteLocation, oldRoute) {
+      // const splitRoute = newRoute.fullPath.split('/')
+      // const isRouteAProjectItem = splitRoute.lastIndexOf('projects') !== splitRoute.length - 1
+      // if (!isRouteAProjectItem) {
+      //   this.routeHasChanged = false
+      // } else {
+      //   this.routeHasChanged = true
+      // }
       this.routeHasChanged = true
     }
   }

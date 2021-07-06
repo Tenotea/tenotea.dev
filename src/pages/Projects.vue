@@ -1,13 +1,11 @@
 <template>
   <main id="projects">
     <div class="projects-container">
-      <projects-navigation />
+      <projects-navigation :label="projectsFilterLabel" />
       <div class="projects-body" :style="{height: projectBodyHeight}">
         <transition :name="transitionName">
-          <projects-view-collapsed v-if="!projectId" :key="currentProjectInView.id" :project="currentProjectInView" @heightChange="setProjectBodyHeight" />
-          <div v-else>
-            {{ projectId }}
-          </div>
+          <projects-view-collapsed v-if="!projectId" :key="currentProjectInView.id" :project="currentProjectInView" @heightChange="setProjectBodyHeight" :label="projectsFilterLabel" />
+          <projects-view-expanded v-else :project="currentProjectInView" :key="currentProjectInView.id" @heightChange="setProjectBodyHeight" />
         </transition>
       </div>
     </div>
@@ -33,7 +31,7 @@
       <projects-project-mobile-control @projectChange="handleProjectChange" />
     </div>
 
-    <projects-bottom-navigation />
+    <projects-bottom-navigation :label="projectsFilterLabel" />
   </main>
 </template>
 
@@ -46,9 +44,10 @@ import ProjectsPositionTracker from '../components/projects/ProjectsPositionTrac
 import ProjectsBottomNavigation from '../components/projects/ProjectsBottomNavigation.vue';
 import ProjectsProjectMobileControl from '../components/projects/ProjectsProjectMobileControl.vue';
 import projectObjects, { PortfolioProject } from '../db/projects/projects';
+import ProjectsViewExpanded from '../components/projects/ProjectsViewExpanded.vue';
 
 export default defineComponent({
-  components: { ProjectsNavigation, ProjectsViewCollapsed, ProjectsProjectControls, ProjectsPositionTracker, ProjectsBottomNavigation, ProjectsProjectMobileControl },
+  components: { ProjectsNavigation, ProjectsViewCollapsed, ProjectsProjectControls, ProjectsPositionTracker, ProjectsBottomNavigation, ProjectsProjectMobileControl, ProjectsViewExpanded },
 
   props: {
     projectId: {
@@ -72,6 +71,10 @@ export default defineComponent({
   computed: {
     currentProjectInView (): PortfolioProject {
       return this.projects[this.currentProjectIndex]
+    },
+
+    projectsFilterLabel (): string {
+      return <string> this.$route.query.label || ''
     }
   },
 
@@ -93,7 +96,7 @@ export default defineComponent({
 
       if (this.projectId) {
         const nextProject = this.projects[this.currentProjectIndex]
-        this.$router.push(`/projects/${nextProject.id}`)
+        this.$router.push(`/projects/${nextProject.id}${this.projectsFilterLabel ? '?label='+this.projectsFilterLabel : ''}`)
       }
     },
 
@@ -154,7 +157,7 @@ export default defineComponent({
   .control-prev-enter-active, .control-next-enter-active, .control-prev-leave-active , .control-next-leave-active {
     transition: 0.5s ease;
     transition-property: transform, opacity;
-    position: absolute;
+    // position: absolute;
   }
 
   .control-prev-enter-from, .control-prev-leave-to {

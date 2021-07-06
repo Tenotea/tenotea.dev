@@ -2,7 +2,7 @@
   <nav class="navigation">
     <ul class="nav-items">
       <router-link v-for="item in navItems" :key="item.id" :to=" item.id > 1 ? `/projects?label=${item.query}` : '/projects'">
-        <li :class="`nav-item ${currentRouteId === item.query ? 'nav-item-active' : ''}`" :style="cssVars">
+        <li :class="`nav-item ${label === item.query ? 'nav-item-active' : ''}`" :style="cssVars">
           {{ item.name }}
         </li>
       </router-link>
@@ -21,15 +21,18 @@ export default defineComponent({
     }
   },
 
+  props: {
+    label: {
+      type: String,
+      required: true
+    }
+  },
+
   computed: {
     cssVars ():any {
       return {
-        '--theme': projectsRoutes.find(el => el.query === this.currentRouteId)?.theme || '#fffdf6cc'
+        '--theme': projectsRoutes.find(el => el.query === this.label)?.theme || '#fffdf6cc'
       }
-    },
-
-    currentRouteId ():string | undefined {
-      return <string> this.$route.query.label
     }
   }
 })
@@ -61,7 +64,11 @@ export default defineComponent({
       }
       &.nav-item-active {
         color: var(--theme);
-        font-weight: 500;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        padding: 0px 4px;
+        padding-bottom: 4px;
+        border-bottom: 2px solid var(--theme);
       }
     }
   }

@@ -2,9 +2,9 @@
   <div class="bottom-nav" :style="cssVars">
     <div class="bottom-nav--container">
       <router-link v-for="item in navRoutes" :key="item.id" :to=" item.id > 1 ? `/projects?label=${item.query}` : '/projects'">
-        <div class="bottom-nav--item" :class="{ active: item.query === currentRouteId }">
-          <app-icon :icon="item.icon" :hover="item.theme" size="1.3" :class="{ active: item.query === currentRouteId }" />
-          <p class="bottom-nav--item__name" :class="{ active: item.query === currentRouteId }">
+        <div class="bottom-nav--item" :class="{ active: item.query === label }">
+          <app-icon :icon="item.icon" :hover="item.theme" size="1.3" :class="{ active: item.query === label }" />
+          <p class="bottom-nav--item__name" :class="{ active: item.query === label }">
             {{ item.name }}
           </p>
         </div>
@@ -26,15 +26,18 @@ export default defineComponent({
     }
   },
 
+  props: {
+    label: {
+      type: String,
+      required: true
+    }
+  },
+
   computed: {
     cssVars ():any {
       return {
-        '--theme': this.navRoutes.find(el => el.query === this.currentRouteId)?.theme
+        '--theme': this.navRoutes.find(el => el.query === this.label)?.theme
       }
-    },
-
-    currentRouteId ():string | undefined {
-      return <string> this.$route.query.label
     }
   }
 })

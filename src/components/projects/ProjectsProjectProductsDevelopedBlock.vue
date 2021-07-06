@@ -1,24 +1,27 @@
 <template>
   <section class="description-block">
     <h6 class="block-title">
-      {{ title }}
+      PRODUCTS Developed
     </h6>
-    <p class="block-content">
-      <slot />
-    </p>
+    <div class="block-content">
+      <p v-for="item in project.productsDeveloped" :key="item" class="block-content-item">
+        - {{ item }}
+      </p>
+    </div>
   </section>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, inject } from 'vue'
+import { PortfolioProject } from '../../db/projects/projects';
 
 export default defineComponent({
-  props: {
-    title: {
-      type: String,
-      required: true
+  setup() {
+    const project = <PortfolioProject> inject('currentProject')
+    return {
+      project
     }
-  }
+  },
 })
 </script>
 
@@ -26,7 +29,6 @@ export default defineComponent({
 @use '@/styles/variables.scss' as globals;
 .description-block {
   max-width: 800px;
-  margin-top: 40px;
   .block-title {
     font-weight: 500;
     font-size: 0.8em;
@@ -40,6 +42,8 @@ export default defineComponent({
     font-size: 0.9em;
     line-height: 2em;
     letter-spacing: 0.01em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>

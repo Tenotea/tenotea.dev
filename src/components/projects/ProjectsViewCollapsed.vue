@@ -2,8 +2,12 @@
   <div class="project-data" ref="projectData">
     <projects-project-header />
     <div class="project-data-column-two">
-      <projects-project-image />
-      <projects-project-description-block style="margin-top: 40px;" />
+      <router-link :to="`/projects/${project.id}${label ? '?label='+label : ''}`">
+        <projects-project-image is-collapsed />
+      </router-link>
+      <projects-project-description-block title="Description">
+        {{ project.description }}
+      </projects-project-description-block>
     </div>
   </div>
 </template>
@@ -21,6 +25,11 @@ export default defineComponent({
   props: {
     project: {
       type: Object as PropType<PortfolioProject>,
+      required: true
+    },
+
+    label: {
+      type: String,
       required: true
     }
   },

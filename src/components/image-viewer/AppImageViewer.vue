@@ -3,7 +3,7 @@
     <!-- Mini -->
     <image-viewer-mini :src="currentImageInView" :next="hasNextImage" :previous="hasPreviousImage" @change-image="changeImage" @goFullScreen="handleGoFullScreen" />
     <!-- Full screen -->
-    <image-viewer-full-screen v-if="openInFullScreen" />
+    <image-viewer-full-screen v-if="openInFullScreen" :src="currentImageInView" :thumbs="images" @exitFullScreen="exitFullScreen" @change-image="changeImage" @jumpto-image="jumpToImage" />
   </section>
 </template>
 
@@ -61,10 +61,18 @@ export default defineComponent({
       }
     },
 
+    jumpToImage (id: number) {
+      console.log(id)
+      this.currentImageIndex = id - 1
+    },
+
     handleGoFullScreen () {
       this.openInFullScreen = true
+    },
+
+    exitFullScreen () {
+      this.openInFullScreen = false
     }
   }
 })
 </script>
-

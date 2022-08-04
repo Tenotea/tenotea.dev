@@ -3,11 +3,11 @@
     <div class="layer_bg_one">
       <h1 class="project_name" ref="waterMark"> {{ project.name }} </h1>
     </div>
-    <div class="layer_bg_two" :class="{ scrolled_into_view: scrolled, reverse: project.position === 2 }" :style="cssVars">
+    <div class="layer_bg_two" :class="{ scrolled_into_view: scrolled, reverse: reverseDirection }" :style="cssVars">
     </div>
 
     <div class="content_container">
-      <project-card :project="project" :reverse="project.position === 2" />
+      <project-card :project="project" :reverse="reverseDirection" />
     </div>
   </section>  
 </template>
@@ -29,9 +29,12 @@ export default defineComponent({
     }
   },
   
-  data: () => ({
-    scrolled: false
-  }),
+  data () {
+    return {
+      scrolled: false,
+      reverseDirection: this.project.position && this.project.position % 2 == 0 ? true : false
+    }
+  },
 
   computed: {
     cssVars():any {
@@ -57,7 +60,7 @@ export default defineComponent({
       entries.forEach(({ isIntersecting }) => {
         if (isIntersecting) {
           gsap.fromTo(waterMark, {
-            x: !(this.project.position === 2) ? '-80%' : '20%',
+            x: !(this.reverseDirection) ? '-80%' : '20%',
             opacity: 0
           }, {
             x: '0%',

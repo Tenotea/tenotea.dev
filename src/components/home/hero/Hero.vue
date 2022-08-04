@@ -5,7 +5,7 @@
         <h5 class="top-caption"> Hi! I'm </h5>
         <div class="name-container">
           <h1 class="name">
-            Tenotea
+            Emmanuel
           </h1>
           <div class="square-grid">
             <span v-for="n in 20" :key="n" :class="`tarmac __${n}`" ></span>
@@ -13,6 +13,7 @@
         </div>
         <p class="bottom-caption">
           <!-- Creating solutions with my programming abilities -->
+          <!-- A fullstack web engineer -->
           A fullstack web engineer
         </p>
 

@@ -16,13 +16,13 @@
           <div class="stack_information">
             <app-icon size="1.3" icon="code-tags" />
             <div class="stack_information__stacks">
-              <template v-for="(stack, index) in project.technologies.slice(0, 4)" :key="stack.id"> 
+              <template v-for="(stack, index) in tools" :key="stack.id"> 
                 <span class="stack"> {{ stack.name }} </span>
-                <span class="delimiter" v-if="index < project.technologies.slice(0, 3).length "> + </span>
+                <span class="delimiter" v-if="index < tools.length-1"> + </span>
               </template>
             </div>
           </div>
-          <a :href="project.url" target="_blank" class="link_action">
+          <a :href="project.url" target="_blank" class="link_action" :style="{backgroundColor: project.theme}">
             <app-icon size="1" icon="open-in-new" />
             <span class="link_action__name"> Visit Site </span>
           </a>
@@ -38,8 +38,8 @@
         </div>
       </div>
     </div>
-    <div class="position_indicator" :class="{ reversed: project.position === 2 }">
-      <project-position-indicator :reverse="project.position === 2">
+    <div class="position_indicator" :class="{ reversed: reverse }">
+      <project-position-indicator :reverse="reverse">
         0{{project.position}}
       </project-position-indicator>
     </div>
@@ -59,6 +59,12 @@ import ProjectPositionIndicator from './ProjectPositionIndicator.vue'
 
 export default defineComponent({
   components: { AppIcon, CommonSquareGrid, ProjectPositionIndicator, HeroBubble },
+  data () {
+    return {
+      tools: this.project.technologies.length > 4 ? this.project.technologies.slice(0, 4) : this.project.technologies
+    }
+  },
+
   props: {
     reverse: {
       type: Boolean

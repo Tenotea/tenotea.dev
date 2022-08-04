@@ -1,3 +1,4 @@
+import { awabah } from './documents/awabah';
 import { arioso } from "./documents/arioso";
 import { movieFetchers } from "./documents/moviefetchers";
 import { techcolon } from "./documents/techcolon";
@@ -33,9 +34,10 @@ export interface ProjectImage {
 }
 
 const projectObjects = [
-  arioso,
+  awabah,
   movieFetchers,
-  techcolon
+  techcolon,
+  arioso,
 ]
 
 export default projectObjects

@@ -5,7 +5,7 @@ export const movieFetchers:PortfolioProject = {
   name: 'Movie Fetchers',
   label: 'frontend',
   feature: true,
-  position: 2,
+  position: 5,
   primaryImage: {
     id: 1,
     url: 'https://i.ibb.co/mG10p98/moviefetchers-01.png'

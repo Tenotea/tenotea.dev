@@ -18,7 +18,7 @@ export const movieFetchers:PortfolioProject = {
     {
       id: 1,
       name: 'Vue.js',
-      url: 'https://nutxjs.org'
+      url: 'https://nuxtjs.org'
     },
     {
       id: 2,

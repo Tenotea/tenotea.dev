@@ -1,3 +1,4 @@
+import { propConsole } from './documents/propconsole';
 import { raptures } from './documents/raptures';
 import { awabah } from './documents/awabah';
 import { arioso } from "./documents/arioso";
@@ -37,6 +38,7 @@ export interface ProjectImage {
 const projectObjects = [
   awabah,
   raptures,
+  propConsole,
   arioso,
   movieFetchers,
   techcolon,

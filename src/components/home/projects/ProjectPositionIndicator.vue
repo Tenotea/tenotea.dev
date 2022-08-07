@@ -1,7 +1,7 @@
 <template>
   <div class="position_indicator__container" :class="{ reverse }">
-    <common-square-grid color="#493B39" />
-    <h1 class="indicator__number" ref="indicatorNumber">
+    <common-square-grid :color="color" />
+    <h1 class="indicator__number" ref="indicatorNumber" :style="{color: color}">
       <slot />
     </h1>
   </div>
@@ -15,6 +15,9 @@ import CommonSquareGrid from '../../common/CommonSquareGrid.vue'
 export default defineComponent({
   components: { CommonSquareGrid },
   props: {
+    color: {
+      type: String
+    },
     reverse: {
       type: Boolean
     }
@@ -46,11 +49,17 @@ export default defineComponent({
 .position_indicator__container {
   position: relative;
   overflow: hidden;
+    top: -100px;
+  @media screen and #{globals.$breakpoint-md} {
+    top: 0;
+  }
   .indicator__number {
-    @media screen and #{globals.$breakpoint-sm} {
+    @media screen and #{globals.$breakpoint-md} {
+      font-size: 8em;
       color: globals.$secondaryOrange;
     }
-    font-size: 8em;
+    font-size: 4em;
+    // text-shadow: 2px 2px 5px #000000;
     color: #d7dbf5;
     margin-left: 10px;
     transform: translateX(90%);

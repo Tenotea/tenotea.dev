@@ -5,7 +5,7 @@ export const techcolon:PortfolioProject = {
   name: 'Techcolon',
   label: 'frontend',
   feature: true,
-  position: 3,
+  position: 8,
   primaryImage: {
     id: 1,
     url: 'https://i.ibb.co/By1fxVm/techcolon-01.png'

@@ -47,5 +47,5 @@ export const awabah:PortfolioProject = {
       url: 'https://res.cloudinary.com/devtenotea/image/upload/v1659625865/Awabah_Product_Summary_ee1lvd.png',
     }
   ],
-  theme: '#3bae3b'
+  theme: '#3D663D'
 }

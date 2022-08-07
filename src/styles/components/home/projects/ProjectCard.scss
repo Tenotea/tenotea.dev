@@ -150,10 +150,12 @@
 
       .view_action {
         color: globals.$primaryOrange;
-        // position: absolute;
-        bottom: 0;
-        right: 0;
-
+        font-size: 12px;
+        width: max-content;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
       }
     }
     &--right_pane {

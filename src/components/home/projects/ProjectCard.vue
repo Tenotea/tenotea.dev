@@ -26,8 +26,8 @@
             <app-icon size="1" icon="open-in-new" />
             <span class="link_action__name"> Visit Site </span>
           </a>
-          <router-link :to="`/projects/${project.id}`">
-            <p class="view_action"> Learn more > </p>
+          <router-link :to="`/projects/${project.id}`" class="view_action">
+            Learn more &gt;
           </router-link>
         </div>
       </div>
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="position_indicator" :class="{ reversed: reverse }">
-      <project-position-indicator :reverse="reverse">
+      <project-position-indicator :reverse="reverse" :color="project.theme">
         0{{project.position}}
       </project-position-indicator>
     </div>

@@ -1,3 +1,5 @@
+import { meristem } from './documents/meristem';
+import { tasere } from './documents/tasere';
 import { propConsole } from './documents/propconsole';
 import { raptures } from './documents/raptures';
 import { awabah } from './documents/awabah';
@@ -39,6 +41,8 @@ const projectObjects = [
   awabah,
   raptures,
   propConsole,
+  meristem,
+  tasere,
   arioso,
   movieFetchers,
   techcolon,

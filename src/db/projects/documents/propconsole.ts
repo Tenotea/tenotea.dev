@@ -31,15 +31,15 @@ export const propConsole:PortfolioProject = {
   productsDeveloped: ['Propconsole Marketplace', 'Propconsole Dashboard for agents and tenants', 'Propconsole CMS for agents'],
   snapshots: [
     {
+      name: 'Propconsole Dashboard', 
+      id: 3,
+      url: 'https://res.cloudinary.com/devtenotea/image/upload/v1659751507/Prop_Console_Cover_2_jj4bbn.png'
+    },
+    {
       id: 2,
       url: 'https://res.cloudinary.com/devtenotea/image/upload/v1659751508/Prop_Console_Cover_1_ky2enl.png',
       name: 'Propconsole Marketplace' 
     },
-    {
-      name: 'Propconsole Dashboard', 
-      id: 3,
-      url: 'https://res.cloudinary.com/devtenotea/image/upload/v1659751507/Prop_Console_Cover_2_jj4bbn.png'
-    }
   ],
   theme: '#538CD1'
 }

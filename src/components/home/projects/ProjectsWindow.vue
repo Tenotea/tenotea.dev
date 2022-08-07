@@ -47,7 +47,7 @@ export default defineComponent({
   mounted () {
     const projectsSection = <HTMLDivElement> this.$refs.projectsSection
     let intersectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(({ isIntersecting }) => {
+      entries.forEach(({ isIntersecting }, index) => {
         this.scrolled = isIntersecting
       })
     }, {
@@ -60,7 +60,7 @@ export default defineComponent({
       entries.forEach(({ isIntersecting }) => {
         if (isIntersecting) {
           gsap.fromTo(waterMark, {
-            x: !(this.reverseDirection) ? '-80%' : '20%',
+            x: !(this.reverseDirection) ? '-20%' : '20%',
             opacity: 0
           }, {
             x: '0%',
@@ -71,6 +71,32 @@ export default defineComponent({
         }
       })
     }).observe(waterMark)
+    // const projectsSection = <HTMLDivElement> this.$refs.projectsSection
+    // let intersectionObserver = new IntersectionObserver((entries) => {
+    //   entries.forEach(({ isIntersecting }, index) => {
+    //     this.scrolled = isIntersecting
+    //   })
+    // }, {
+    //   threshold: 0.3
+    // })
+    // intersectionObserver.observe(projectsSection)
+
+    // const waterMark = <HTMLDivElement> this.$refs.waterMark
+    // new IntersectionObserver((entries, observer) => {
+    //   entries.forEach(({ isIntersecting }) => {
+    //     if (isIntersecting) {
+    //       gsap.fromTo(waterMark, {
+    //         x: !(this.reverseDirection) ? '-80%' : '0%',
+    //         opacity: 0
+    //       }, {
+    //         x: '10%',
+    //         duration: 1,
+    //         opacity: 1,
+    //         ease: Power1.easeInOut
+    //       })
+    //     }
+    //   })
+    // }).observe(waterMark)
   }
 })
 </script>

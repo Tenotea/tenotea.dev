@@ -5,7 +5,7 @@ export const arioso:PortfolioProject = {
   name: 'Arioso',
   label: 'frontend',
   feature: true,
-  position: 4,
+  position: 6,
   primaryImage: {
     id: 4,
     name: 'Arioso - Song list',
@@ -52,5 +52,5 @@ export const arioso:PortfolioProject = {
       url: 'https://i.ibb.co/h907Zwm/Arioso-01.png'
     }
   ],
-  theme: '#4778ff'
+  theme: '#c1403d'
 }
